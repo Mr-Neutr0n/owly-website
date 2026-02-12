@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Carousel, CarouselImage } from './carousel';
+import { cn } from '@/lib/utils';
 
 const VideoTypesSection = () => {
   const [activeTab, setActiveTab] = useState('UGC');
@@ -13,43 +13,14 @@ const VideoTypesSection = () => {
     { id: 'short-ads', label: 'Short Ads' },
   ];
 
-  // Carousel images data
-  const carouselImages: CarouselImage[] = [
-    {
-      id: 1,
-      src: '/images/gallery/kayak-carousel.png',
-      alt: 'Creator-style video showing person kayaking in dreamy landscape with pink and purple gradient',
-      width: 415,
-      height: 622,
-    },
-    {
-      id: 2,
-      src: '/images/gallery/kayak-carousel.png',
-      alt: 'Brand video example with kayaking scene',
-      width: 365,
-      height: 572,
-    },
-    {
-      id: 3,
-      src: '/images/gallery/kayak-carousel.png',
-      alt: 'Product video style with outdoor adventure',
-      width: 323,
-      height: 516,
-    },
-    {
-      id: 4,
-      src: '/images/gallery/kayak-carousel.png',
-      alt: 'UGC-style video content with authentic feel',
-      width: 360,
-      height: 572,
-    },
-    {
-      id: 5,
-      src: '/images/gallery/kayak-carousel.png',
-      alt: 'Short ad format with engaging visual',
-      width: 351,
-      height: 526,
-    },
+  // Gallery images - using the kayak image for now, can be replaced with different images per tab
+  const galleryImages = [
+    '/images/gallery/kayak-carousel.png',
+    '/images/gallery/kayak-carousel.png',
+    '/images/gallery/kayak-carousel.png',
+    '/images/gallery/kayak-carousel.png',
+    '/images/gallery/kayak-carousel.png',
+    '/images/gallery/kayak-carousel.png',
   ];
 
   return (
@@ -87,46 +58,28 @@ const VideoTypesSection = () => {
             </div>
           </div>
 
-          {/* Beautiful Focus Carousel */}
-          <div className="w-full group">
-            <Carousel
-              images={carouselImages}
-              initialIndex={2}
-              config={{
-                infinite: true,
-                showDots: true,
-                showArrows: true,
-                showCounter: true,
-                enableKeyboard: true,
-                enableTouch: true,
-                enableDrag: true,
-                enableShadow: true,
-                enableBlur: false,
-                autoPlay: false,
-                pauseOnHover: true,
-                autoPlayInterval: 5000,
-                transitionDuration: 500,
-                springConfig: {
-                  stiffness: 300,
-                  damping: 30,
-                },
-                desktop: {
-                  focusWidth: 415,
-                  visibleCount: 5,
-                },
-                tablet: {
-                  focusWidth: 360,
-                  visibleCount: 3,
-                },
-                mobile: {
-                  focusWidth: 280,
-                  visibleCount: 3,
-                },
-              }}
-              onSlideChange={(index) => {
-                console.log('Slide changed to:', index);
-              }}
-            />
+          {/* Expandable Gallery */}
+          <div className="flex items-center gap-2 h-[500px] w-full">
+            {galleryImages.map((src, idx) => (
+              <div
+                key={idx}
+                className="relative group flex-grow w-24 transition-all rounded-[16px] overflow-hidden h-[500px] duration-500 ease-in-out hover:w-[600px] hover:flex-grow-0 cursor-pointer"
+              >
+                <img
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  src={src}
+                  alt={`Video type ${idx + 1}`}
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Label on hover */}
+                <div className="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                  <p className="text-white text-lg font-semibold">
+                    {tabs[idx % tabs.length]?.label || 'Video'}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

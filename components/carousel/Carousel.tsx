@@ -37,12 +37,21 @@ const Carousel: React.FC<CarouselProps> = ({
   const config: CarouselConfig = {
     ...DEFAULT_CAROUSEL_CONFIG,
     ...userConfig,
-    desktop: { ...DEFAULT_CAROUSEL_CONFIG.desktop, ...userConfig.desktop },
-    tablet: { ...DEFAULT_CAROUSEL_CONFIG.tablet, ...userConfig.tablet },
-    mobile: { ...DEFAULT_CAROUSEL_CONFIG.mobile, ...userConfig.mobile },
+    desktop: {
+      ...DEFAULT_CAROUSEL_CONFIG.desktop!,
+      ...(userConfig.desktop || {})
+    },
+    tablet: {
+      ...DEFAULT_CAROUSEL_CONFIG.tablet!,
+      ...(userConfig.tablet || {})
+    },
+    mobile: {
+      ...DEFAULT_CAROUSEL_CONFIG.mobile!,
+      ...(userConfig.mobile || {})
+    },
     springConfig: {
-      ...DEFAULT_CAROUSEL_CONFIG.springConfig,
-      ...userConfig.springConfig,
+      ...DEFAULT_CAROUSEL_CONFIG.springConfig!,
+      ...(userConfig.springConfig || {}),
     },
   };
 

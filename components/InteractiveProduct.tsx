@@ -3,16 +3,12 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { HiPlus, HiMicrophone } from 'react-icons/hi';
-import { FiArrowRight } from 'react-icons/fi';
+import { Mic, ArrowRight } from 'lucide-react';
 
 const InteractiveProduct = () => {
-  const [isInputFocused, setIsInputFocused] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleInteraction = () => {
-    // This will trigger the sign-in flow
-    // For now, we'll redirect to a sign-in page or show a modal
-    // You can customize this to connect to your actual auth flow
     window.location.href = '/signin';
   };
 
@@ -36,215 +32,347 @@ const InteractiveProduct = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-black rounded-[11.87px] p-[7.913px] flex gap-[2.967px] max-w-[1396px] mx-auto h-[875px]"
+          className="bg-black rounded-[12px] p-2 flex gap-[3px] max-w-[1396px] mx-auto h-[875px] overflow-hidden"
         >
-          {/* Sidebar */}
-          <div className="bg-[#040404] border border-[rgba(64,64,64,0.15)] rounded-[11.589px] w-[263.659px] h-[859.547px] p-[5.795px] shadow-[0px_7.726px_30.905px_0px_rgba(0,0,0,0.3)]">
-            <div className="flex flex-col justify-between h-full">
+          {/* Animated Sidebar */}
+          <motion.div
+            className="bg-[#040404] border border-[rgba(64,64,64,0.15)] rounded-[12px] h-full flex-shrink-0 shadow-[0px_8px_31px_0px_rgba(0,0,0,0.3),inset_0px_1px_0px_0px_rgba(64,64,64,0.2)] overflow-hidden"
+            animate={{
+              width: sidebarOpen ? '273px' : '66px',
+            }}
+            transition={{
+              duration: 0.3,
+              ease: [0.4, 0, 0.2, 1],
+            }}
+            onMouseEnter={() => setSidebarOpen(true)}
+            onMouseLeave={() => setSidebarOpen(false)}
+          >
+            <div className="flex flex-col justify-between h-full px-[6px] py-[13px]">
               {/* Top Section */}
-              <div className="space-y-[22.213px] py-[12.555px]">
-                {/* Logo */}
-                <div className="flex items-center justify-between px-[10px]">
-                  <div className="h-[29.329px] w-[70.502px] relative">
-                    <Image
-                      src="/images/interactive-product/owly-studio-logo.png"
-                      alt="Owly Studio"
-                      fill
-                      className="object-contain"
+              <div className="flex flex-col gap-[22px]">
+                {/* Logo - Animated width reveal */}
+                <div className="flex items-center justify-between w-full px-[4px]">
+                  <motion.div
+                    className="h-[35px] relative overflow-hidden"
+                    animate={{ width: sidebarOpen ? '85px' : '23px' }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                  >
+                    {/* Logo positioned to show owl icon, revealing text on expand */}
+                    <img
+                      src="/images/interactive-product/owly-logo-full.png"
+                      alt="Owly"
+                      className="absolute h-full max-w-none"
+                      style={{
+                        width: '105px',
+                        left: '-12px',
+                        top: '0',
+                      }}
                     />
-                  </div>
-                  <button className="text-gray-500 hover:text-gray-300 transition-colors">
-                    <svg className="w-[17px] h-[17px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                  </button>
+                  </motion.div>
+                  <motion.button
+                    className="w-[17px] h-[17px] flex items-center justify-center"
+                    animate={{ opacity: sidebarOpen ? 1 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      src="/images/interactive-product/sidebar-toggle.svg"
+                      alt="Toggle"
+                      width={17}
+                      height={17}
+                    />
+                  </motion.button>
                 </div>
 
                 {/* Menu Items */}
-                <div className="space-y-[5.795px]">
-                  <div className="bg-[#111] rounded-[7.726px] px-[9.658px] py-[11.589px] flex items-center gap-[9.658px]">
-                    <div className="w-[23.179px] h-[23.179px] bg-[rgba(255,255,255,0.05)] rounded-[3.863px] flex items-center justify-center">
-                      <svg className="w-[13.521px] h-[13.521px] text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                      </svg>
+                <div className="flex flex-col gap-[6px]">
+                  {/* Create New Video - Selected */}
+                  <div className="bg-[#111] rounded-[8px] px-[10px] py-[12px] flex items-center gap-[10px] cursor-pointer">
+                    <div className="w-[23px] h-[23px] flex items-center justify-center flex-shrink-0">
+                      <Image
+                        src="/images/interactive-product/create-icon-new.svg"
+                        alt="Create"
+                        width={14}
+                        height={14}
+                      />
                     </div>
-                    <span className="text-[#a8a8a8] text-[13.52px] font-medium">Create New Video</span>
+                    <motion.span
+                      className="text-[#a8a8a8] text-[14px] font-medium whitespace-nowrap overflow-hidden"
+                      animate={{
+                        opacity: sidebarOpen ? 1 : 0,
+                        width: sidebarOpen ? 'auto' : 0,
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Create New Video
+                    </motion.span>
                   </div>
-                  <div className="rounded-[7.726px] px-[9.658px] py-[5.795px] flex items-center gap-[9.658px] hover:bg-[rgba(255,255,255,0.03)] transition-colors cursor-pointer">
-                    <div className="w-[23.179px] h-[23.179px] rounded-[3.863px] flex items-center justify-center">
-                      <svg className="w-[15.453px] h-[15.453px] text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                      </svg>
+
+                  {/* Video Library */}
+                  <div className="rounded-[8px] px-[10px] py-[6px] flex items-center gap-[10px] hover:bg-[rgba(255,255,255,0.05)] transition-colors cursor-pointer">
+                    <div className="w-[23px] h-[23px] flex items-center justify-center flex-shrink-0">
+                      <Image
+                        src="/images/interactive-product/library-icon-new.svg"
+                        alt="Library"
+                        width={15}
+                        height={15}
+                      />
                     </div>
-                    <span className="text-[#a8a8a8] text-[13.52px] font-medium">Video Library</span>
+                    <motion.span
+                      className="text-[#a8a8a8] text-[14px] font-medium whitespace-nowrap overflow-hidden"
+                      animate={{
+                        opacity: sidebarOpen ? 1 : 0,
+                        width: sidebarOpen ? 'auto' : 0,
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Video Library
+                    </motion.span>
                   </div>
-                  <div className="rounded-[7.726px] px-[9.658px] py-[5.795px] flex items-center gap-[9.658px] hover:bg-[rgba(255,255,255,0.03)] transition-colors cursor-pointer">
-                    <div className="w-[23.179px] h-[23.179px] rounded-[3.863px] flex items-center justify-center">
-                      <svg className="w-[21.247px] h-[21.247px] text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                      </svg>
+
+                  {/* Explores */}
+                  <div className="rounded-[8px] px-[10px] py-[6px] flex items-center gap-[10px] hover:bg-[rgba(255,255,255,0.05)] transition-colors cursor-pointer">
+                    <div className="w-[23px] h-[23px] flex items-center justify-center flex-shrink-0">
+                      <Image
+                        src="/images/interactive-product/explore-icon-new.svg"
+                        alt="Explore"
+                        width={21}
+                        height={21}
+                      />
                     </div>
-                    <span className="text-[#a8a8a8] text-[13.52px] font-medium">Explores</span>
+                    <motion.span
+                      className="text-[#a8a8a8] text-[14px] font-medium whitespace-nowrap overflow-hidden"
+                      animate={{
+                        opacity: sidebarOpen ? 1 : 0,
+                        width: sidebarOpen ? 'auto' : 0,
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Explores
+                    </motion.span>
                   </div>
                 </div>
               </div>
 
               {/* Bottom Section */}
-              <div className="space-y-[5.795px]">
-                {/* Credits */}
-                <div className="bg-[#131313] rounded-[8.692px] p-[6.76px] space-y-[4.829px]">
-                  <div className="flex items-center justify-between">
-                    <div className="w-[51.301px] h-[46.255px] relative">
+              <div className="flex flex-col gap-[6px]">
+                {/* Credits Section */}
+                <div className="bg-[#131313] rounded-[9px] p-[7px]">
+                  <div className="flex items-center gap-[8px] mb-[5px]">
+                    <div className="h-[46px] w-[46px] relative flex-shrink-0">
                       <Image
-                        src="/images/interactive-product/credits-icon.png"
+                        src="/images/interactive-product/remaining-credits-icon.png"
                         alt="Credits"
                         fill
                         className="object-contain"
                       />
                     </div>
-                    <div className="flex-1 ml-[10px] space-y-[12.555px]">
-                      <p className="text-[#a6a6a6] text-[13.521px]">45 % Credit left</p>
-                      <div className="h-[3.863px] bg-[#2a2a2a] rounded-full overflow-hidden">
-                        <div className="h-full w-[45%] bg-gradient-to-r from-green-400 to-green-600 rounded-full" />
+                    <motion.div
+                      className="flex flex-col gap-[8px] overflow-hidden"
+                      animate={{
+                        opacity: sidebarOpen ? 1 : 0,
+                        width: sidebarOpen ? '178px' : 0,
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <span className="text-[#a6a6a6] text-[14px] whitespace-nowrap">45 % Credit left</span>
+                      <div className="h-[4px] bg-[#333] rounded-full overflow-hidden">
+                        <div className="h-full w-[45%] bg-gradient-to-r from-[#27fda7] to-[#4f46e5] rounded-full" />
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
-                  <button className="w-full bg-[#050505] rounded-[7.726px] px-[9.658px] py-[15.453px] text-[#d9d9d9] text-[13.521px] font-medium hover:bg-[#0a0a0a] transition-colors">
+                  <motion.button
+                    className="w-full bg-[#050505] rounded-[8px] px-[10px] py-[15px] text-[#d9d9d9] text-[14px] font-medium hover:bg-[rgba(255,255,255,0.05)] transition-colors overflow-hidden"
+                    animate={{
+                      opacity: sidebarOpen ? 1 : 0,
+                      height: sidebarOpen ? 'auto' : 0,
+                      padding: sidebarOpen ? '15px 10px' : '0px 10px',
+                    }}
+                    transition={{ duration: 0.2 }}
+                  >
                     Upgrade Now
-                  </button>
+                  </motion.button>
                 </div>
 
                 {/* User Info */}
-                <div className="bg-[#131313] rounded-[7.726px] p-[11.589px]">
+                <div className="bg-[#131313] rounded-[8px] p-[12px]">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-[5.795px]">
-                      <div className="w-[34.478px] h-[35.063px] relative rounded-full overflow-hidden">
-                        <Image
-                          src="/images/interactive-product/user-avatar.png"
-                          alt="User"
-                          fill
-                          className="object-cover"
-                        />
+                    <div className="flex items-center gap-[6px]">
+                      <div className="w-[35px] h-[35px] bg-[#411d73] rounded-[6px] flex items-center justify-center flex-shrink-0">
+                        <span className="text-[#d5d5d5] text-[14px] font-bold">AV</span>
                       </div>
-                      <div>
-                        <p className="text-white text-[13.521px]">Aadith V A</p>
-                        <p className="text-[#d5d5d5] text-[11.589px] truncate max-w-[110px]">aaadithaachu@gmail.com</p>
-                      </div>
+                      <motion.div
+                        className="overflow-hidden"
+                        animate={{
+                          opacity: sidebarOpen ? 1 : 0,
+                          width: sidebarOpen ? '112px' : 0,
+                        }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <p className="text-white text-[14px] whitespace-nowrap">Aadith V A</p>
+                        <p className="text-[#d5d5d5] text-[12px] truncate">aaadithachu@gmail.com</p>
+                      </motion.div>
                     </div>
-                    <svg className="w-[15.935px] h-[14.487px] text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
+                    <motion.div
+                      className="w-[16px] h-[15px]"
+                      animate={{ opacity: sidebarOpen ? 1 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Image
+                        src="/images/interactive-product/settings-icon.svg"
+                        alt="Settings"
+                        width={16}
+                        height={15}
+                      />
+                    </motion.div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Main Content */}
-          <div className="flex-1 relative rounded-[10.881px] overflow-hidden bg-gradient-to-b from-gray-900 via-black to-black h-[854.718px]">
-            {/* Background curtain effect */}
+          <div className="flex-1 relative rounded-[11px] overflow-hidden">
+            {/* Background */}
             <div className="absolute inset-0">
               <Image
                 src="/images/interactive-product/main-bg.png"
                 alt="Background"
                 fill
-                className="object-cover opacity-40"
+                className="object-cover"
                 priority
               />
             </div>
 
             {/* Content */}
-            <div className="relative h-full flex flex-col justify-between p-[10px]">
+            <div className="relative h-full flex flex-col justify-between p-[7px]">
               {/* Top Header */}
-              <div className="bg-[rgba(0,0,0,0.59)] rounded-[5.795px] px-[17.384px] py-[9.658px] flex items-center justify-between">
-                <div className="flex items-center gap-[7.828px] opacity-68">
-                  <div className="w-[23.179px] h-[23.179px] bg-gradient-to-br from-purple-500 to-pink-500 rounded-full" />
-                  <span className="text-[#f3f3f3] text-[11.589px] font-bold opacity-70">Quenzy</span>
+              <div className="bg-[rgba(0,0,0,0.59)] rounded-[6px] px-[17px] py-[10px] flex items-center justify-between">
+                <div className="flex items-center gap-[8px] opacity-70">
+                  <div className="w-[23px] h-[23px] rounded-md overflow-hidden">
+                    <Image
+                      src="/images/interactive-product/header-user.svg"
+                      alt="User"
+                      width={23}
+                      height={23}
+                    />
+                  </div>
+                  <span className="text-[#f3f3f3] text-[12px] font-bold">Quenzy</span>
                 </div>
                 <button className="text-gray-400 hover:text-gray-200">
-                  <svg className="w-[23.179px] h-[24.145px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                  </svg>
+                  <Image
+                    src="/images/interactive-product/header-menu.svg"
+                    alt="Menu"
+                    width={23}
+                    height={24}
+                  />
                 </button>
               </div>
 
               {/* Center Content */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-[170px]">
-                <h3 className="text-white text-[61.81px] font-normal leading-[54.084px] mb-4">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-[100px]">
+                {/* Glow Effect */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] opacity-30 pointer-events-none">
+                  <Image
+                    src="/images/interactive-product/glow-effect.png"
+                    alt=""
+                    fill
+                    className="object-contain mix-blend-screen"
+                  />
+                </div>
+
+                <h3 className="text-white text-[62px] font-normal leading-[54px] mb-4 relative z-10" style={{ fontFamily: 'Didact Gothic, sans-serif' }}>
                   Hey Hari!
                 </h3>
-                <p className="text-[rgba(255,255,255,0.37)] text-[46.358px] leading-[54.084px] tracking-[-1.2362px]">
+                <p className="text-[rgba(255,255,255,0.37)] text-[46px] leading-[54px] tracking-[-1.24px] relative z-10">
                   What are we creating today?
                 </p>
 
                 {/* Input Bar */}
-                <div className="mt-[85px]">
-                  <div className="bg-[#171717] rounded-[14.487px] shadow-[0px_4.329px_16.999px_0px_rgba(0,0,0,0.17)] h-[99.476px] flex items-center justify-between px-[45px]">
-                    <div className="flex items-center gap-[5.795px]">
+                <div className="mt-[60px] relative z-10">
+                  <div className="bg-[#171717] rounded-[14px] shadow-[0px_4px_17px_0px_rgba(0,0,0,0.17),inset_0px_4px_3px_0px_rgba(0,0,0,0.03)] h-[99px] flex items-center justify-between px-[12px]">
+                    <div className="flex items-center gap-[6px]">
+                      {/* Plus Button */}
                       <button
                         onClick={handleInteraction}
-                        className="w-[34.768px] h-[34.768px] bg-[#111] rounded-[7.726px] flex items-center justify-center hover:bg-[#1a1a1a] transition-colors"
+                        className="w-[23px] h-[23px] flex items-center justify-center hover:opacity-80 transition-opacity"
                       >
-                        <HiPlus className="w-[20px] h-[20px] text-gray-400" />
+                        <Image
+                          src="/images/interactive-product/plus-icon.svg"
+                          alt="Add"
+                          width={23}
+                          height={23}
+                        />
                       </button>
 
-                      <div className="flex items-center gap-[5.795px]">
-                        <div className="bg-[#111] rounded-[7.726px] px-[7.726px] py-[7.726px] flex items-center gap-[7.726px] h-[28.973px]">
-                          <svg className="w-[13.521px] h-[13.521px] text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                          </svg>
-                          <span className="text-[#27fda7] text-[11.589px]">Create</span>
-                        </div>
-
-                        <input
-                          type="text"
-                          placeholder="30 sec"
-                          onClick={handleInteraction}
-                          onFocus={() => setIsInputFocused(true)}
-                          onBlur={() => setIsInputFocused(false)}
-                          className="bg-transparent text-[#9a9a9a] text-[13.521px] outline-none cursor-pointer placeholder-[#9a9a9a] w-[60px]"
-                          readOnly
+                      {/* Create Tag */}
+                      <div className="bg-[#111] rounded-[8px] px-[8px] py-[8px] flex items-center gap-[8px] h-[29px]">
+                        <Image
+                          src="/images/interactive-product/tag-create.svg"
+                          alt="Create"
+                          width={14}
+                          height={14}
                         />
+                        <span className="text-[#27fda7] text-[12px]">Create</span>
+                      </div>
 
-                        <div className="h-[16.418px] w-px bg-[#333] rotate-90" />
-
-                        <input
-                          type="text"
-                          placeholder="9:16"
-                          onClick={handleInteraction}
-                          className="bg-transparent text-[#9a9a9a] text-[13.521px] outline-none cursor-pointer placeholder-[#9a9a9a] w-[40px]"
-                          readOnly
+                      {/* Duration */}
+                      <div className="flex items-center gap-[8px] px-[8px]">
+                        <Image
+                          src="/images/interactive-product/tag-duration.svg"
+                          alt="Duration"
+                          width={14}
+                          height={14}
                         />
+                        <span className="text-[#9a9a9a] text-[14px]">30 sec</span>
+                      </div>
 
-                        <div className="h-[16.418px] w-px bg-[#333] rotate-90" />
+                      <div className="h-[16px] w-px bg-[#333]" />
 
-                        <input
-                          type="text"
-                          placeholder="Cinematic"
-                          onClick={handleInteraction}
-                          className="bg-transparent text-[#9a9a9a] text-[13.521px] outline-none cursor-pointer placeholder-[#9a9a9a] w-[80px]"
-                          readOnly
+                      {/* Aspect Ratio */}
+                      <div className="flex items-center gap-[8px] px-[8px]">
+                        <Image
+                          src="/images/interactive-product/tag-ratio.svg"
+                          alt="Ratio"
+                          width={16}
+                          height={16}
                         />
+                        <span className="text-[#9a9a9a] text-[14px]">9:16</span>
+                      </div>
+
+                      <div className="h-[16px] w-px bg-[#333]" />
+
+                      {/* Style */}
+                      <div className="flex items-center gap-[8px] px-[8px]">
+                        <Image
+                          src="/images/interactive-product/tag-style.svg"
+                          alt="Style"
+                          width={16}
+                          height={16}
+                        />
+                        <span className="text-[#9a9a9a] text-[14px]">Cinematic</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-[5.795px]">
+                    <div className="flex items-center gap-[6px]">
                       <button
                         onClick={handleInteraction}
-                        className="w-[34.768px] h-[34.768px] flex items-center justify-center hover:bg-[rgba(255,255,255,0.05)] rounded-full transition-colors"
+                        className="w-[35px] h-[35px] flex items-center justify-center hover:bg-[rgba(255,255,255,0.05)] rounded-full transition-colors"
                       >
-                        <HiMicrophone className="w-[20px] h-[20px] text-gray-400" />
+                        <Mic className="w-[20px] h-[20px] text-gray-400" />
                       </button>
                       <button
                         onClick={handleInteraction}
-                        className="w-[34.768px] h-[34.768px] bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors rotate-90"
+                        className="w-[35px] h-[35px] bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
                       >
-                        <FiArrowRight className="w-[20px] h-[20px] text-black" />
+                        <ArrowRight className="w-[20px] h-[20px] text-black rotate-[-90deg]" />
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {/* Bottom spacer */}
+              <div />
             </div>
           </div>
         </motion.div>

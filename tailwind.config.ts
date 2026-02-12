@@ -9,6 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        border: 'hsl(var(--border))',
         primary: {
           50: '#f0f0ff',
           100: '#e5e5ff',
@@ -56,10 +63,14 @@ const config: Config = {
         'gradient-primary': 'linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)',
         'gradient-accent': 'linear-gradient(135deg, #ff2d7d 0%, #c70055 100%)',
       },
+      maxWidth: {
+        container: "1280px",
+      },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',
         'slide-up': 'slideUp 0.6s ease-out',
         'float': 'float 3s ease-in-out infinite',
+        'marquee': 'marquee var(--duration) linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -73,6 +84,10 @@ const config: Config = {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
+        },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(calc(-100% - var(--gap)))' },
         },
       },
     },

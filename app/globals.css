@@ -7,6 +7,13 @@
 :root {
   --font-inter: 'Inter', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
+
+  /* shadcn/ui CSS variables */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 6%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 45%;
+  --border: 0 0% 90%;
 }
 
 @layer base {
