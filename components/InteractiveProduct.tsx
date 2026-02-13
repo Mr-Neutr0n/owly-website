@@ -1,65 +1,68 @@
 'use client';
 
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Paperclip, PlusIcon, ArrowUp } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { PlusIcon, ArrowUp, Check } from 'lucide-react';
+import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 
 const InteractiveProduct = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [selectedDuration, setSelectedDuration] = useState('30 sec');
+  const [selectedRatio, setSelectedRatio] = useState('9:16');
+  const [selectedStyle, setSelectedStyle] = useState('Cinematic');
+  const [showDurationDropdown, setShowDurationDropdown] = useState(false);
+  const [showRatioDropdown, setShowRatioDropdown] = useState(false);
+  const [showStyleDropdown, setShowStyleDropdown] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const durationRef = useRef<HTMLDivElement>(null);
+  const ratioRef = useRef<HTMLDivElement>(null);
+  const styleRef = useRef<HTMLDivElement>(null);
 
-  const handleInteraction = () => {
-    // Placeholder - no redirect for demo
-  };
+  const durations = ['15 sec', '20 sec', '25 sec', '30 sec', '45 sec', '60 sec'];
+  const ratios = [
+    { value: '9:16', label: '9:16', desc: 'Vertical (TikTok, Reels)' },
+    { value: '16:9', label: '16:9', desc: 'Horizontal (YouTube)' },
+    { value: '1:1', label: '1:1', desc: 'Square (Instagram)' },
+    { value: '4:5', label: '4:5', desc: 'Portrait (Instagram)' },
+    { value: '4:3', label: '4:3', desc: 'Standard' },
+  ];
+  const styles = ['Cinematic', 'Minimal', 'Bold', 'Playful', 'Corporate', 'Retro'];
 
-  const adjustHeight = useCallback((reset?: boolean) => {
-    const textarea = textareaRef.current;
-    if (!textarea) return;
-
-    if (reset) {
-      textarea.style.height = '60px';
-      return;
-    }
-
-    textarea.style.height = '60px';
-    const newHeight = Math.max(60, Math.min(textarea.scrollHeight, 200));
-    textarea.style.height = `${newHeight}px`;
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (durationRef.current && !durationRef.current.contains(e.target as Node)) {
+        setShowDurationDropdown(false);
+      }
+      if (ratioRef.current && !ratioRef.current.contains(e.target as Node)) {
+        setShowRatioDropdown(false);
+      }
+      if (styleRef.current && !styleRef.current.contains(e.target as Node)) {
+        setShowStyleDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      if (inputValue.trim()) {
-        setInputValue('');
-        adjustHeight(true);
-      }
-    }
-  };
-
   return (
-    <section className="py-20 bg-white">
-      {/* Heading */}
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-[68.6px] font-semibold leading-[63.111px] tracking-[-4.116px] text-[#0a0a0a] text-center mb-[68px] px-8"
+    <section className="bg-white">
+      <ContainerScroll
+        titleComponent={
+          <div className="flex flex-col items-center">
+            <h2 className="text-4xl md:text-[68.6px] font-semibold leading-tight md:leading-[63.111px] tracking-[-2px] md:tracking-[-4.116px] text-[#0a0a0a] text-center mb-4">
+              Try it yourself.
+            </h2>
+            <p className="text-lg md:text-xl text-neutral-600 max-w-2xl text-center">
+              Experience the Owly workflow. Create stunning ad videos in minutes.
+            </p>
+          </div>
+        }
       >
-        Try it yourself.
-      </motion.h2>
-
-      {/* Interactive Product Container - Full Width */}
-      <div className="px-2">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="bg-black rounded-[14px] p-2 flex gap-[3px] w-full h-[875px] overflow-hidden"
-        >
+        {/* Interactive Product Container */}
+        <div className="bg-black rounded-[14px] p-2 flex gap-[3px] w-full h-full overflow-hidden">
           {/* Animated Sidebar */}
           <motion.div
             className="bg-[#040404] border border-[rgba(64,64,64,0.15)] rounded-[12px] h-full flex-shrink-0 shadow-[0px_8px_31px_0px_rgba(0,0,0,0.3),inset_0px_1px_0px_0px_rgba(64,64,64,0.2)] overflow-hidden"
@@ -295,9 +298,9 @@ const InteractiveProduct = () => {
               </div>
 
               {/* Center Content */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-[100px]">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-[50px] md:px-[100px]">
                 {/* Glow Effect */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] opacity-30 pointer-events-none">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[600px] h-[300px] md:h-[400px] opacity-30 pointer-events-none">
                   <Image
                     src="/images/interactive-product/glow-effect.png"
                     alt=""
@@ -306,69 +309,226 @@ const InteractiveProduct = () => {
                   />
                 </div>
 
-                <h3 className="text-white text-[62px] font-normal leading-[54px] mb-4 relative z-10" style={{ fontFamily: 'Didact Gothic, sans-serif' }}>
-                  Hey Hari!
+                <h3 className="text-white text-[32px] md:text-[48px] font-normal leading-[36px] md:leading-[42px] tracking-[-0.5px] md:tracking-[-0.96px] mb-3 relative z-10 font-didact">
+                  Hey Guest!
                 </h3>
-                <p className="text-[rgba(255,255,255,0.37)] text-[46px] leading-[54px] tracking-[-1.24px] relative z-10">
-                  What are we creating today?
+                <p className="text-[rgba(255,255,255,0.37)] text-[24px] md:text-[36px] leading-[28px] md:leading-[42px] tracking-[-0.5px] md:tracking-[-0.72px] relative z-10 font-didact">
+                  What are we Creating today?
                 </p>
 
-                {/* Input Bar */}
-                <div className="mt-[60px] relative z-10">
-                  <div className="bg-neutral-900 rounded-xl border border-neutral-800">
-                    <div className="overflow-y-auto">
-                      <textarea
-                        ref={textareaRef}
-                        value={inputValue}
-                        onChange={(e) => {
-                          setInputValue(e.target.value);
-                          adjustHeight();
-                        }}
-                        onKeyDown={handleKeyDown}
-                        onClick={handleInteraction}
-                        placeholder="Ask Owly a question..."
-                        className="w-full px-4 py-3 resize-none bg-transparent border-none text-white text-sm focus:outline-none focus:ring-0 placeholder:text-neutral-500 placeholder:text-sm min-h-[60px]"
-                        style={{ overflow: 'hidden' }}
-                      />
-                    </div>
+                {/* Input Bar - New Design */}
+                <div className="mt-[30px] md:mt-[60px] relative z-10">
+                  <div className="bg-[#181818] rounded-[15px] shadow-[0px_4px_18px_0px_rgba(0,0,0,0.17)] min-h-[90px] md:min-h-[106px] w-full max-w-[754px] mx-auto flex flex-col px-3 md:px-4 py-3">
+                    {/* Text Input Area */}
+                    <textarea
+                      ref={textareaRef}
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      placeholder="Describe your video idea..."
+                      className="w-full bg-transparent text-white text-[14px] placeholder:text-[#6a6a6a] resize-none focus:outline-none min-h-[40px] max-h-[120px] mb-2"
+                      rows={1}
+                      onInput={(e) => {
+                        const target = e.target as HTMLTextAreaElement;
+                        target.style.height = 'auto';
+                        target.style.height = Math.min(target.scrollHeight, 120) + 'px';
+                      }}
+                    />
 
-                    <div className="flex items-center justify-between p-3">
+                    {/* Bottom Controls - Anchored to bottom */}
+                    <div className="flex items-center justify-between mt-auto">
+                      {/* Left side - Plus and Create */}
                       <div className="flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={handleInteraction}
-                          className="group p-2 hover:bg-neutral-800 rounded-lg transition-colors flex items-center gap-1"
-                        >
-                          <Paperclip className="w-4 h-4 text-white" />
-                          <span className="text-xs text-zinc-400 hidden group-hover:inline transition-opacity">
-                            Attach
-                          </span>
-                        </button>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={handleInteraction}
-                          className="px-2 py-1 rounded-lg text-sm text-zinc-400 transition-colors border border-dashed border-zinc-700 hover:border-zinc-600 hover:bg-zinc-800 flex items-center justify-between gap-1"
-                        >
-                          <PlusIcon className="w-4 h-4" />
-                          Project
-                        </button>
-                        <button
-                          type="button"
-                          onClick={handleInteraction}
-                          className={`px-1.5 py-1.5 rounded-lg text-sm transition-colors border border-zinc-700 hover:border-zinc-600 hover:bg-zinc-800 flex items-center justify-between gap-1 ${
-                            inputValue.trim() ? 'bg-white text-black' : 'text-zinc-400'
-                          }`}
-                        >
-                          <ArrowUp
-                            className={`w-4 h-4 ${inputValue.trim() ? 'text-black' : 'text-zinc-400'}`}
+                        {/* Plus Icon */}
+                        <button className="w-6 h-6 flex items-center justify-center hover:opacity-80 transition-opacity">
+                          <img
+                            src="/images/input-bar/plus-icon.svg"
+                            alt="Add"
+                            className="w-6 h-6"
+                            style={{ filter: 'brightness(0.85)' }}
                           />
-                          <span className="sr-only">Send</span>
+                        </button>
+
+                        {/* Create Tag */}
+                        <div className="bg-[#111] rounded-lg px-2 py-1.5 flex items-center gap-2 h-[30px]">
+                          <div className="w-6 h-6 flex items-center justify-center">
+                            <img
+                              src="/images/input-bar/create-icon.svg"
+                              alt="Create"
+                              className="w-4 h-4"
+                            />
+                          </div>
+                          <span className="text-[#27fda7] text-[12px] font-medium">Create</span>
+                        </div>
+
+                        {/* Divider and Options - Hidden on mobile */}
+                        <div className="hidden md:flex items-center gap-1">
+                          {/* Duration Dropdown */}
+                          <div ref={durationRef} className="relative">
+                            <button
+                              onClick={() => setShowDurationDropdown(!showDurationDropdown)}
+                              className="flex items-center gap-2 px-2 py-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
+                            >
+                              <img
+                                src="/images/input-bar/time-icon.svg"
+                                alt="Duration"
+                                className="w-[15px] h-[15px]"
+                              />
+                              <span className="text-[#9a9a9a] text-[14px]">{selectedDuration}</span>
+                            </button>
+
+                            {/* Duration Dropdown Menu */}
+                            <AnimatePresence>
+                              {showDurationDropdown && (
+                                <motion.div
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  exit={{ opacity: 0, y: 10 }}
+                                  transition={{ duration: 0.15 }}
+                                  className="absolute bottom-full left-0 mb-2 bg-[#222] rounded-lg shadow-xl border border-white/10 py-1 min-w-[120px] z-50"
+                                >
+                                  {durations.map((duration) => (
+                                    <button
+                                      key={duration}
+                                      onClick={() => {
+                                        setSelectedDuration(duration);
+                                        setShowDurationDropdown(false);
+                                      }}
+                                      className={`w-full px-3 py-2 text-left text-[14px] hover:bg-white/10 transition-colors flex items-center justify-between ${
+                                        selectedDuration === duration ? 'text-[#27fda7]' : 'text-white/70'
+                                      }`}
+                                    >
+                                      {duration}
+                                      {selectedDuration === duration && <Check className="w-4 h-4" />}
+                                    </button>
+                                  ))}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+
+                          {/* Separator */}
+                          <div className="w-[1px] h-[17px] bg-white/20"></div>
+
+                          {/* Aspect Ratio Dropdown */}
+                          <div ref={ratioRef} className="relative">
+                            <button
+                              onClick={() => setShowRatioDropdown(!showRatioDropdown)}
+                              className="flex items-center gap-2 px-2 py-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
+                            >
+                              <img
+                                src="/images/input-bar/aspect-ratio-icon.svg"
+                                alt="Aspect Ratio"
+                                className="w-4 h-4"
+                              />
+                              <span className="text-[#9a9a9a] text-[14px]">{selectedRatio}</span>
+                            </button>
+
+                            {/* Ratio Dropdown Menu */}
+                            <AnimatePresence>
+                              {showRatioDropdown && (
+                                <motion.div
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  exit={{ opacity: 0, y: 10 }}
+                                  transition={{ duration: 0.15 }}
+                                  className="absolute bottom-full left-0 mb-2 bg-[#222] rounded-lg shadow-xl border border-white/10 py-1 min-w-[180px] z-50"
+                                >
+                                  {ratios.map((ratio) => (
+                                    <button
+                                      key={ratio.value}
+                                      onClick={() => {
+                                        setSelectedRatio(ratio.value);
+                                        setShowRatioDropdown(false);
+                                      }}
+                                      className={`w-full px-3 py-2 text-left hover:bg-white/10 transition-colors flex items-center justify-between ${
+                                        selectedRatio === ratio.value ? 'text-[#27fda7]' : 'text-white/70'
+                                      }`}
+                                    >
+                                      <div>
+                                        <span className="text-[14px]">{ratio.label}</span>
+                                        <span className="text-[11px] text-white/40 ml-2">{ratio.desc}</span>
+                                      </div>
+                                      {selectedRatio === ratio.value && <Check className="w-4 h-4" />}
+                                    </button>
+                                  ))}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+
+                          {/* Separator */}
+                          <div className="w-[1px] h-[17px] bg-white/20"></div>
+
+                          {/* Style Dropdown */}
+                          <div ref={styleRef} className="relative">
+                            <button
+                              onClick={() => setShowStyleDropdown(!showStyleDropdown)}
+                              className="flex items-center gap-2 px-2 py-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
+                            >
+                              <img
+                                src="/images/input-bar/cinematic-icon.svg"
+                                alt="Style"
+                                className="w-[17px] h-[17px]"
+                              />
+                              <span className="text-[#9a9a9a] text-[14px]">{selectedStyle}</span>
+                            </button>
+
+                            {/* Style Dropdown Menu */}
+                            <AnimatePresence>
+                              {showStyleDropdown && (
+                                <motion.div
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  exit={{ opacity: 0, y: 10 }}
+                                  transition={{ duration: 0.15 }}
+                                  className="absolute bottom-full left-0 mb-2 bg-[#222] rounded-lg shadow-xl border border-white/10 py-1 min-w-[140px] z-50"
+                                >
+                                  {styles.map((style) => (
+                                    <button
+                                      key={style}
+                                      onClick={() => {
+                                        setSelectedStyle(style);
+                                        setShowStyleDropdown(false);
+                                      }}
+                                      className={`w-full px-3 py-2 text-left text-[14px] hover:bg-white/10 transition-colors flex items-center justify-between ${
+                                        selectedStyle === style ? 'text-[#27fda7]' : 'text-white/70'
+                                      }`}
+                                    >
+                                      {style}
+                                      {selectedStyle === style && <Check className="w-4 h-4" />}
+                                    </button>
+                                  ))}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right side - Mic and Send */}
+                      <div className="flex items-center gap-2">
+                        {/* Microphone */}
+                        <button className="w-9 h-9 flex items-center justify-center text-white/60 hover:text-white transition-colors">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="9" y="2" width="6" height="11" rx="3" stroke="currentColor" strokeWidth="2"/>
+                            <path d="M5 10V11C5 14.866 8.13401 18 12 18C15.866 18 19 14.866 19 11V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                            <path d="M12 18V22M12 22H8M12 22H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                          </svg>
+                        </button>
+
+                        {/* Send Button */}
+                        <button
+                          className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors ${
+                            inputValue.trim() ? 'bg-white hover:bg-gray-200' : 'bg-white/20'
+                          }`}
+                          disabled={!inputValue.trim()}
+                        >
+                          <ArrowUp className={`w-5 h-5 ${inputValue.trim() ? 'text-black' : 'text-white/40'}`} />
                         </button>
                       </div>
                     </div>
                   </div>
+
                 </div>
               </div>
 
@@ -376,8 +536,8 @@ const InteractiveProduct = () => {
               <div />
             </div>
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </ContainerScroll>
     </section>
   );
 };

@@ -29,7 +29,7 @@ export function TestimonialsSection({
           <h2 className="text-[77px] font-semibold leading-[71px] tracking-[-4.6px] text-[#0a0a0a] text-center">
             {title}
           </h2>
-          <p className="text-[15px] leading-[24px] text-black text-center max-w-[600px]">
+          <p className="text-[15px] leading-[24px] text-[#6b6b6b] text-center max-w-[600px]">
             {description}
           </p>
         </div>

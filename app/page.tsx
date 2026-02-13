@@ -7,6 +7,7 @@ import FeaturesSection from '@/components/FeaturesSection';
 import InteractiveProduct from '@/components/InteractiveProduct';
 import TeamsSection from '@/components/TeamsSection';
 import { TestimonialsSection } from '@/components/ui/testimonials-with-marquee';
+import WorkflowOrbit from '@/components/WorkflowOrbit';
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="relative h-[792px] w-full px-2"
+        className="relative h-[calc(100vh-80px)] min-h-[500px] w-full px-2 mt-[8px]"
       >
         {/* Background Image */}
         <div className="absolute inset-x-2 inset-y-0 overflow-hidden pointer-events-none rounded-[14px]">
@@ -48,7 +49,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="w-[374px]"
           >
-            <p className="text-white text-[16px] leading-[25.4px] text-right">
+            <p className="text-white/70 text-[16px] leading-[25.4px] text-right">
               Owly helps performance and brand teams plan, create, iterate, and launch ad videos
             </p>
           </motion.div>
@@ -58,20 +59,28 @@ export default function Home() {
       {/* Teams Section - Full Width Parallax */}
       <TeamsSection />
 
-      {/* Try it yourself Section - Full Width */}
-      <div className="mt-[255px] relative z-10 bg-white">
+      {/* White cover layer to hide parallax bleed */}
+      <div className="relative z-50 bg-white h-[280px] w-full -mt-[280px]"></div>
+
+      {/* Try it yourself Section - Full Width with Scroll Animation */}
+      <div className="relative z-50 bg-white">
         <InteractiveProduct />
       </div>
 
-      <div className="max-w-[1442px] mx-auto px-4">
+      {/* Features Section - Create ad videos end-to-end */}
+      <div className="relative z-50 bg-white mt-20 md:mt-32">
+        <FeaturesSection />
+      </div>
+
+      <div className="max-w-[1442px] mx-auto px-4 relative z-20 bg-white">
       {/* Video Formats Text Section */}
-      <section className="mt-[255px] py-20 bg-white">
+      <section className="mt-[100px] py-20 pb-[100px] bg-white">
         <div className="max-w-7xl mx-auto px-8 md:px-12">
           <div className="flex flex-col gap-[35px] items-center text-center">
             <h2 className="text-[111.325px] font-semibold leading-[102.419px] tracking-[-6.6795px] text-[#0a0a0a]">
               Create every kind of video your marketing needs.
             </h2>
-            <p className="text-[31.439px] leading-[49.814px] text-black">
+            <p className="text-[31.439px] leading-[49.814px] text-[#6b6b6b]">
               One workflow. Multiple video formats.
             </p>
           </div>
@@ -81,51 +90,46 @@ export default function Home() {
       {/* Video Types Gallery Section */}
       <VideoTypesSection />
 
-      {/* Features Section */}
-      <div className="mt-[255px]">
-        <FeaturesSection />
-      </div>
-
       {/* Your new secret weapon Section - Before/After Comparison */}
-      <section className="mt-[255px] py-20 bg-white">
-        <div className="max-w-[1047px] mx-auto px-4">
+      <section className="mt-[80px] sm:mt-[120px] md:mt-[180px] lg:mt-[255px] py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-[57px]"
+            className="text-center mb-[32px] sm:mb-[40px] lg:mb-[57px]"
           >
-            <h2 className="text-[54px] font-semibold leading-[50px] tracking-[-3.26px] text-[#0a0a0a] mb-4">
-              Your new secret weapon<br />for video Ads
+            <h2 className="text-[32px] sm:text-[48px] md:text-[60px] lg:text-[77px] font-semibold leading-[1.1] tracking-[-2px] lg:tracking-[-4.6px] text-[#0a0a0a] mb-4">
+              Your new secret weapon<br className="hidden sm:block" /><span className="sm:hidden"> </span>for video Ads
             </h2>
-            <p className="text-[15px] leading-[24px] text-black max-w-[500px] mx-auto">
+            <p className="text-[14px] sm:text-[15px] leading-[22px] sm:leading-[24px] text-[#6b6b6b] max-w-[500px] mx-auto px-4 sm:px-0">
               Stop launching ads based on guesswork. Use a structured creative workflow trusted by modern performance teams.
             </p>
           </motion.div>
 
           {/* Before/After Cards */}
-          <div className="flex flex-col lg:flex-row gap-[21px]">
+          <div className="flex flex-col lg:flex-row gap-4 sm:gap-[24px] justify-center">
             {/* Before Card */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="w-[513px] h-[500px] bg-white border border-[#c2c2c2] rounded-[18px] overflow-hidden relative flex-shrink-0"
+              className="w-full lg:flex-1 lg:max-w-[680px] h-[380px] sm:h-[480px] lg:h-[580px] bg-white border border-[#c2c2c2] rounded-[18px] overflow-hidden relative"
             >
               {/* Text Content */}
-              <div className="absolute left-[54px] top-[32px] w-[331px]">
-                <h3 className="text-[20px] font-semibold tracking-[-1px] text-black mb-[13px]">
+              <div className="absolute left-[20px] sm:left-[40px] lg:left-[54px] top-[20px] sm:top-[28px] lg:top-[32px] w-[calc(100%-40px)] sm:w-[280px] lg:w-[331px]">
+                <h3 className="text-[18px] sm:text-[20px] font-semibold tracking-[-1px] text-black mb-[10px] sm:mb-[13px]">
                   Before
                 </h3>
-                <p className="text-[15px] leading-[24px] text-black">
+                <p className="text-[14px] sm:text-[15px] leading-[22px] sm:leading-[24px] text-[#6b6b6b]">
                   Multiple group chats, endless revisions, and slow turnaround.
                 </p>
               </div>
               {/* Chaos Image - positioned exactly as in Figma */}
-              <div className="absolute left-[-1px] top-[145px] w-[513px] h-[354px] rounded-[11px] overflow-hidden">
+              <div className="absolute left-[-1px] top-[110px] sm:top-[130px] lg:top-[145px] w-full h-[270px] sm:h-[350px] lg:h-[434px] rounded-[11px] overflow-hidden">
                 <Image
                   src="/images/secret-weapon/before-chaos.png"
                   alt="Chaotic workflow with multiple apps"
@@ -143,11 +147,11 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex-1 h-[500px] bg-black rounded-[18px] overflow-hidden relative"
+              className="w-full lg:flex-1 lg:max-w-[680px] h-[380px] sm:h-[480px] lg:h-[580px] bg-black rounded-[18px] overflow-hidden relative"
             >
-              <div className="p-[54px] pb-0">
-                <div className="flex items-center gap-[10px] mb-[13px]">
-                  <h3 className="text-[20px] font-semibold tracking-[-1px] text-white">
+              <div className="p-[20px] sm:p-[40px] lg:p-[54px] pb-0">
+                <div className="flex items-center gap-[8px] mb-[10px] sm:mb-[13px]">
+                  <h3 className="text-[18px] sm:text-[20px] font-semibold tracking-[-1px] text-white">
                     After
                   </h3>
                   <Image
@@ -155,56 +159,17 @@ export default function Home() {
                     alt="Owly"
                     width={61}
                     height={19}
+                    className="w-[50px] sm:w-[61px] h-auto"
                   />
                 </div>
-                <p className="text-[15px] leading-[24px] text-[#e0e0e0] max-w-[331px]">
+                <p className="text-[14px] sm:text-[15px] leading-[22px] sm:leading-[24px] text-[#a0a0a0] max-w-[280px] sm:max-w-[331px]">
                   A single, end-to-end workflow for building, testing, and improving ad creative.
                 </p>
               </div>
 
-              {/* Circular Workflow Diagram */}
-              <div className="absolute bottom-[60px] left-1/2 -translate-x-1/2 w-[406px] h-[338px]">
-                {/* Outer Circle */}
-                <div className="absolute left-[72px] top-[38px] w-[262px] h-[262px]">
-                  <Image
-                    src="/images/secret-weapon/circle-outer.svg"
-                    alt=""
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                {/* Inner Circle */}
-                <div className="absolute left-[129px] top-[95px] w-[148px] h-[148px]">
-                  <Image
-                    src="/images/secret-weapon/circle-inner.svg"
-                    alt=""
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                {/* Center Owly Icon */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[45px] h-[54px]">
-                  <Image
-                    src="/images/secret-weapon/owly-icon.svg"
-                    alt="Owly"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-
-                {/* Labels */}
-                <div className="absolute left-[91px] top-[50px] bg-[#1e2025] px-[6px] py-[6px] rounded-[7px]">
-                  <span className="text-[12px] font-semibold text-white tracking-[-0.58px]">Production</span>
-                </div>
-                <div className="absolute right-[28px] top-[125px] bg-[#1e2025] px-[6px] py-[6px] rounded-[7px]">
-                  <span className="text-[12px] font-semibold text-white tracking-[-0.58px]">Iteration</span>
-                </div>
-                <div className="absolute right-[57px] bottom-[70px] bg-[#1e2025] px-[6px] py-[6px] rounded-[7px]">
-                  <span className="text-[12px] font-semibold text-white tracking-[-0.58px]">Analyse</span>
-                </div>
-                <div className="absolute left-[47px] bottom-[82px] bg-[#1e2025] px-[6px] py-[6px] rounded-[7px]">
-                  <span className="text-[12px] font-semibold text-white tracking-[-0.58px]">Ideation</span>
-                </div>
+              {/* Animated Circular Workflow Diagram */}
+              <div className="absolute bottom-[10px] sm:bottom-[15px] lg:bottom-[20px] left-1/2 -translate-x-1/2 scale-[0.65] sm:scale-[0.85] lg:scale-100 origin-bottom">
+                <WorkflowOrbit />
               </div>
             </motion.div>
           </div>
@@ -212,7 +177,7 @@ export default function Home() {
       </section>
 
       {/* Still not convinced Section - Testimonials */}
-      <div className="mt-[255px]">
+      <div className="mt-[120px]">
         <TestimonialsSection
           title="Still not convinced"
           description="Stop launching ads based on guesswork. Use a structured creative workflow trusted by modern performance teams."
@@ -262,10 +227,162 @@ export default function Home() {
       </div>
 
       {/* Want Your Business to Shine - Matching Figma Layout */}
-      <section className="mt-[255px] py-20 bg-white">
+      <section className="mt-[120px] py-12 lg:py-20 bg-white">
         <div className="max-w-[1495px] mx-auto px-4">
-          {/* Relative container for absolute positioning */}
-          <div className="relative h-[993px]">
+
+          {/* Mobile Layout - Hidden on desktop */}
+          <div className="lg:hidden flex flex-col gap-8">
+            {/* Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col gap-4 items-center text-center"
+            >
+              <div className="border border-[#e0e0e0] rounded-[13px] px-[12px] py-[8px]">
+                <span className="font-medium text-[14px] text-black uppercase">
+                  Owly your video partner
+                </span>
+              </div>
+              <h2 className="text-[40px] sm:text-[56px] font-semibold leading-[1] tracking-[-2px] text-[#0a0a0a]">
+                Want Your Business to Shine?
+              </h2>
+            </motion.div>
+
+            {/* Image Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Woman with Popsicle */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="relative aspect-[3/4] rounded-[16px] overflow-hidden"
+              >
+                <Image
+                  src="/images/shine/01-woman-popsicle.png"
+                  alt="Woman eating popsicle"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-4 right-4">
+                  <Image src="/images/shine/owly-logo.svg" alt="Owly" width={40} height={12} />
+                </div>
+              </motion.div>
+
+              {/* Billie Pink Product */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="relative aspect-[3/4] rounded-[16px] overflow-hidden"
+              >
+                <Image
+                  src="/images/shine/02-billie-pink-product.png"
+                  alt="Billie product"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-4 right-4">
+                  <Image src="/images/shine/owly-logo.svg" alt="Owly" width={40} height={12} />
+                </div>
+              </motion.div>
+
+              {/* Coca-Cola Cans */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="relative aspect-[3/4] rounded-[16px] overflow-hidden"
+              >
+                <Image
+                  src="/images/shine/03-coca-cola-cans.png"
+                  alt="Coca-Cola cans"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute bottom-4 right-4">
+                  <Image src="/images/shine/owly-logo.svg" alt="Owly" width={40} height={12} />
+                </div>
+              </motion.div>
+
+              {/* Phone Cases */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="relative aspect-[3/4] rounded-[16px] overflow-hidden"
+              >
+                <Image
+                  src="/images/shine/04-phone-cases.png"
+                  alt="Colorful phone cases"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-4 left-4">
+                  <Image src="/images/shine/owly-logo.svg" alt="Owly" width={40} height={12} />
+                </div>
+              </motion.div>
+
+              {/* tfit Skincare */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="relative aspect-[4/3] rounded-[16px] overflow-hidden"
+              >
+                <Image
+                  src="/images/shine/05-tfit-skincare-beach.png"
+                  alt="tfit skincare product"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+
+              {/* Nike Golf Ball */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="relative aspect-[4/3] rounded-[16px] overflow-hidden"
+              >
+                <Image
+                  src="/images/shine/07-nike-golf-ball.png"
+                  alt="Nike golf ball"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-4 left-4">
+                  <Image src="/images/shine/owly-logo.svg" alt="Owly" width={40} height={12} />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col items-center gap-4 text-center px-4"
+            >
+              <p className="text-[16px] text-[#6b6b6b] max-w-[344px]">
+                Generate branded promotional content that converts viewers into customers.
+              </p>
+              <button className="w-full max-w-[357px] h-[64px] bg-black text-white text-[18px] font-bold rounded-[16px] hover:bg-neutral-800 transition-colors">
+                Try it free
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Desktop Layout - Hidden on mobile */}
+          <div className="hidden lg:block relative h-[993px]">
 
             {/* Left Column - Woman with Popsicle */}
             <motion.div
@@ -273,7 +390,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="absolute left-0 top-[89px] w-[357px] h-[459px] rounded-[21px] overflow-hidden"
+              className="absolute left-0 top-[89px] w-[357px] h-[459px] rounded-[21px] overflow-hidden z-[10]"
             >
               <Image
                 src="/images/shine/01-woman-popsicle.png"
@@ -292,7 +409,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="absolute left-0 top-[571px] w-[357px] h-[422px] rounded-[21px] overflow-hidden"
+              className="absolute left-0 top-[571px] w-[357px] h-[422px] rounded-[21px] overflow-hidden z-[10]"
             >
               <Image
                 src="/images/shine/02-billie-pink-product.png"
@@ -311,7 +428,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="absolute left-[620px] top-[-40px] w-[750px] h-[500px] z-10"
+              className="absolute left-[620px] top-[-40px] w-[750px] h-[500px] z-[5]"
             >
               <Image
                 src="/images/shine/06-daisy-flowers.png"
@@ -347,7 +464,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="absolute left-[384px] top-[479px] w-[357px] h-[514px] rounded-[21px] overflow-hidden"
+              className="absolute left-[384px] top-[479px] w-[357px] h-[514px] rounded-[21px] overflow-hidden z-[10]"
             >
               <Image
                 src="/images/shine/03-coca-cola-cans.png"
@@ -366,7 +483,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="absolute left-[762px] top-[396px] w-[357px] h-[431px] rounded-[21px] overflow-hidden"
+              className="absolute left-[762px] top-[396px] w-[357px] h-[431px] rounded-[21px] overflow-hidden z-[10]"
             >
               <Image
                 src="/images/shine/04-phone-cases.png"
@@ -391,7 +508,7 @@ export default function Home() {
                 Generate branded promotional content that converts viewers into customers.
               </p>
               <button className="w-full h-[87px] bg-black text-white text-[24px] font-bold rounded-[20px] hover:bg-neutral-800 transition-colors flex items-center justify-center">
-                Give it a try!
+                Try it free
               </button>
             </motion.div>
 
@@ -401,7 +518,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="absolute left-[1030px] top-[89px] w-[439px] h-[289px] rounded-[22px] overflow-hidden"
+              className="absolute left-[1030px] top-[89px] w-[439px] h-[289px] rounded-[22px] overflow-hidden z-[1]"
             >
               <Image
                 src="/images/shine/05-tfit-skincare-beach.png"
@@ -417,7 +534,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="absolute left-[1138px] top-[396px] w-[357px] h-[333px] rounded-[21px] overflow-hidden"
+              className="absolute left-[1138px] top-[396px] w-[357px] h-[333px] rounded-[21px] overflow-hidden z-[10]"
             >
               <Image
                 src="/images/shine/07-nike-golf-ball.png"
@@ -436,7 +553,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="absolute left-[1138px] top-[745px] w-[357px] h-[248px] rounded-[21px] overflow-hidden"
+              className="absolute left-[1138px] top-[745px] w-[357px] h-[248px] rounded-[21px] overflow-hidden z-[10]"
             >
               <Image
                 src="/images/shine/08-mcdonalds-happy-meal.png"

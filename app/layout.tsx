@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Space_Grotesk, Didact_Gothic } from 'next/font/google';
 import './globals.css';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -16,6 +16,13 @@ const spaceGrotesk = Space_Grotesk({
   display: 'swap',
 });
 
+const didactGothic = Didact_Gothic({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-didact',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   title: 'Owly - Innovative Solutions for Your Business',
   description: 'Empowering businesses with innovative solutions for a better tomorrow. Discover our features, pricing, and more.',
@@ -28,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${didactGothic.variable}`}>
       <body className="min-h-screen flex flex-col font-sans">
         <Navigation />
         <main className="flex-1">{children}</main>

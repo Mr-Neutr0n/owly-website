@@ -61,24 +61,16 @@ const Navigation = () => {
   );
 
   const signupButtonElement = (
-    <div className="relative group w-full sm:w-auto">
-       <div className="absolute inset-0 -m-2 rounded-full
-                     hidden sm:block
-                     bg-gray-100
-                     opacity-40 filter blur-lg pointer-events-none
-                     transition-all duration-300 ease-out
-                     group-hover:opacity-60 group-hover:blur-xl group-hover:-m-3"></div>
-       <button className="relative z-10 px-4 py-2 sm:px-3 text-xs sm:text-sm font-semibold text-black bg-gradient-to-br from-gray-100 to-gray-300 rounded-full hover:from-gray-200 hover:to-gray-400 transition-all duration-200 w-full sm:w-auto">
-         Try it free
-       </button>
-    </div>
+    <button className="px-4 py-2 sm:px-4 text-xs sm:text-sm font-semibold text-black bg-white rounded-full hover:bg-neutral-100 transition-colors duration-200 w-full sm:w-auto">
+      Try it free
+    </button>
   );
 
   return (
     <div className={`fixed top-2 left-2 right-2 z-50 transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : 'translate-y-[-120%]'}`}>
-      <header className="flex flex-col items-center px-6 py-3 bg-black w-full rounded-[14px]">
+      <header className="flex flex-col items-center px-3 md:px-4 lg:px-5 py-[14px] bg-black w-full rounded-[14px]">
 
-      <div className="flex items-center justify-between w-full max-w-[1401px] mx-auto gap-x-6 sm:gap-x-8">
+      <div className="flex items-center justify-between w-full gap-x-6 sm:gap-x-8">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
@@ -113,7 +105,7 @@ const Navigation = () => {
         </button>
       </div>
 
-      <div className={`sm:hidden flex flex-col items-center w-full max-w-[1401px] mx-auto transition-all ease-in-out duration-300 overflow-hidden
+      <div className={`sm:hidden flex flex-col items-center w-full transition-all ease-in-out duration-300 overflow-hidden
                        ${isOpen ? 'max-h-[1000px] opacity-100 pt-4' : 'max-h-0 opacity-0 pt-0 pointer-events-none'}`}>
         <nav className="flex flex-col items-center space-y-4 text-base w-full">
           {navLinksData.map((link) => (

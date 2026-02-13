@@ -19,10 +19,63 @@
 @layer base {
   body {
     @apply bg-white text-neutral-900 antialiased;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-bold;
+    @apply font-semibold;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+}
+
+/* Consistent Typography Styles */
+@layer components {
+  /* Headings */
+  .heading-xl {
+    @apply text-[111px] font-semibold leading-[102px] tracking-[-6.68px] text-[#0a0a0a];
+  }
+
+  .heading-lg {
+    @apply text-[77px] font-semibold leading-[71px] tracking-[-4.6px] text-[#0a0a0a];
+  }
+
+  .heading-md {
+    @apply text-[54px] font-semibold leading-[50px] tracking-[-3.26px] text-[#0a0a0a];
+  }
+
+  .heading-sm {
+    @apply text-[40px] font-semibold leading-[1] tracking-[-2px] text-[#0a0a0a];
+  }
+
+  .heading-card {
+    @apply text-[20px] font-semibold tracking-[-1px];
+  }
+
+  /* Subtext / Body */
+  .subtext-lg {
+    @apply text-[31px] leading-[50px] text-[#6b6b6b];
+  }
+
+  .subtext-md {
+    @apply text-[16px] leading-[25px] text-[#6b6b6b];
+  }
+
+  .subtext-sm {
+    @apply text-[15px] leading-[24px] text-[#6b6b6b];
+  }
+
+  .subtext-xs {
+    @apply text-[14px] leading-normal text-[#6b6b6b];
+  }
+
+  /* Labels / Tags */
+  .label-tag {
+    @apply text-[14px] font-medium uppercase text-black;
+  }
+
+  /* Card text on dark backgrounds */
+  .subtext-dark {
+    @apply text-[15px] leading-[24px] text-[#a0a0a0];
   }
 }
 
