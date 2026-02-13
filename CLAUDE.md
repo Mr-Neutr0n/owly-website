@@ -142,3 +142,55 @@ npm run dev     # Start dev server
 npm run build   # Production build
 npm run lint    # Run linter
 ```
+
+## Visual Verification with Playwright Screenshots
+
+**IMPORTANT:** After implementing UI changes, ALWAYS take screenshots to verify the implementation and catch visual issues.
+
+### Screenshot Process
+
+1. **Take a screenshot after implementation:**
+   ```bash
+   npx playwright screenshot --wait-for-timeout=2000 --viewport-size=1280,900 http://localhost:3002/[page] /tmp/[descriptive-name].png
+   ```
+
+2. **Read the screenshot to analyze:**
+   ```
+   Use the Read tool with the screenshot path to visually inspect the implementation
+   ```
+
+3. **Check for common issues:**
+   - Colors matching design specs (no brand color violations)
+   - Elements properly aligned and attached (e.g., connection lines to badges)
+   - Correct backgrounds (white vs black)
+   - Text readability and contrast
+   - Responsive scaling
+   - Missing or floating elements
+
+4. **Fix issues and re-screenshot:**
+   - Make corrections based on visual inspection
+   - Take another screenshot to verify fixes
+   - Repeat until all issues are resolved
+
+### Example Workflow
+
+```bash
+# After making changes, take screenshot
+npx playwright screenshot --wait-for-timeout=2000 --viewport-size=1280,900 http://localhost:3002/features /tmp/features-check.png
+
+# For full page screenshots
+npx playwright screenshot --wait-for-timeout=2000 --full-page http://localhost:3002/features /tmp/features-fullpage.png
+
+# For specific viewport sizes (mobile)
+npx playwright screenshot --wait-for-timeout=2000 --viewport-size=375,812 http://localhost:3002/features /tmp/features-mobile.png
+```
+
+### Bug Bash Checklist
+After taking screenshots, verify:
+- [ ] Background colors correct (white/black as specified)
+- [ ] No brand color violations (e.g., no green if not in brand palette)
+- [ ] Text labels present/removed as requested
+- [ ] Connection lines attached to elements (not floating)
+- [ ] Icons visible and correctly colored
+- [ ] Animations rendering (particles, rings, etc.)
+- [ ] Responsive at different viewport sizes

@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useId } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -20,9 +20,10 @@ const CircularGradientTracing: React.FC<{
   gradientColors = ["#2EB9DF", "#9E00FF", "#2EB9DF"],
   animationDuration = 4,
 }) => {
+  const id = useId();
   const size = radius * 2 + strokeWidth * 2;
   const center = size / 2;
-  const gradientId = `circular-gradient-${Math.random().toString(36).substr(2, 9)}`;
+  const gradientId = `circular-gradient-${id.replace(/:/g, '')}`;
 
   // Create circular path
   const circlePath = `M ${center}, ${strokeWidth}

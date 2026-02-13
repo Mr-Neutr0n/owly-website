@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import VideoTypesSection from '@/components/VideoTypesSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import InteractiveProduct from '@/components/InteractiveProduct';
-import TeamsSection from '@/components/TeamsSection';
 import { TestimonialsSection } from '@/components/ui/testimonials-with-marquee';
 import WorkflowOrbit from '@/components/WorkflowOrbit';
+import { MagicText } from '@/components/ui/magic-text';
 
 export default function Home() {
   return (
@@ -56,11 +56,15 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Teams Section - Full Width Parallax */}
-      <TeamsSection />
-
-      {/* White cover layer to hide parallax bleed */}
-      <div className="relative z-50 bg-white h-[280px] w-full -mt-[280px]"></div>
+      {/* Magic Text Section - Full Viewport */}
+      <div className="relative z-50 bg-white min-h-screen flex items-center justify-center">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 md:px-12 flex justify-center">
+          <MagicText
+            text="Built for teams that move fast, test ideas often, and scale the video that performs."
+            className="text-[32px] sm:text-[56px] md:text-[80px] lg:text-[111px] font-semibold leading-[1.05] tracking-[-2px] sm:tracking-[-4px] lg:tracking-[-6.6795px] text-[#0a0a0a] justify-center text-center"
+          />
+        </div>
+      </div>
 
       {/* Try it yourself Section - Full Width with Scroll Animation */}
       <div className="relative z-50 bg-white">
@@ -74,13 +78,13 @@ export default function Home() {
 
       <div className="max-w-[1442px] mx-auto px-4 relative z-20 bg-white">
       {/* Video Formats Text Section */}
-      <section className="mt-[100px] py-20 pb-[100px] bg-white">
-        <div className="max-w-7xl mx-auto px-8 md:px-12">
-          <div className="flex flex-col gap-[35px] items-center text-center">
-            <h2 className="text-[111.325px] font-semibold leading-[102.419px] tracking-[-6.6795px] text-[#0a0a0a]">
+      <section className="mt-[40px] sm:mt-[60px] lg:mt-[100px] py-10 sm:py-16 lg:py-20 pb-[40px] sm:pb-[60px] lg:pb-[100px] bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12">
+          <div className="flex flex-col gap-[16px] sm:gap-[24px] lg:gap-[35px] items-center text-center">
+            <h2 className="text-[32px] sm:text-[56px] md:text-[80px] lg:text-[111px] font-semibold leading-[1.05] tracking-[-2px] sm:tracking-[-4px] lg:tracking-[-6.6795px] text-[#0a0a0a]">
               Create every kind of video your marketing needs.
             </h2>
-            <p className="text-[31.439px] leading-[49.814px] text-[#6b6b6b]">
+            <p className="text-[16px] sm:text-[20px] lg:text-[31px] leading-[1.5] text-[#6b6b6b]">
               One workflow. Multiple video formats.
             </p>
           </div>
@@ -571,41 +575,41 @@ export default function Home() {
       </section>
 
       {/* Get in touch today Section */}
-      <section className="mt-[255px] py-20 bg-white">
-        <div className="max-w-[1200px] mx-auto px-8">
-          <div className="flex flex-col lg:flex-row gap-[69px] items-center">
+      <section id="contact" className="mt-[80px] sm:mt-[120px] lg:mt-[255px] py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-[69px] items-center">
             {/* Left side - Form with background image */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative w-full lg:w-[655px] h-[645px] rounded-[35px] overflow-hidden flex-shrink-0"
+              className="relative w-full lg:w-[655px] min-h-[500px] sm:min-h-[580px] lg:min-h-[645px] rounded-[20px] sm:rounded-[28px] lg:rounded-[35px] overflow-hidden flex-shrink-0"
             >
               {/* Background Image */}
               <div className="absolute inset-0 overflow-hidden">
                 <img
                   src="/images/contact/contact-background.png"
                   alt="Contact background"
-                  className="w-full h-full object-cover scale-150"
+                  className="w-full h-full object-cover scale-125 sm:scale-150"
                 />
               </div>
 
               {/* Form Container */}
-              <div className="absolute left-[72px] top-[78px] w-[511px] h-[489px]">
+              <div className="relative m-4 sm:m-8 lg:m-[72px] lg:mt-[78px]">
                 {/* Glassmorphism background */}
-                <div className="absolute inset-0 bg-white/30 backdrop-blur-md rounded-[20px] border border-white/50" />
+                <div className="absolute inset-0 bg-white/30 backdrop-blur-md rounded-[16px] sm:rounded-[20px] border border-white/50" />
 
                 {/* Form Fields */}
-                <div className="relative p-8 flex flex-col gap-7">
+                <div className="relative p-5 sm:p-6 lg:p-8 flex flex-col gap-5 sm:gap-6 lg:gap-7">
                   {/* Name and Email Row */}
-                  <div className="flex gap-5">
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
                     <div className="flex flex-col gap-2 flex-1">
                       <label className="text-[12px] text-black">Name</label>
                       <input
                         type="text"
                         placeholder="Ex; Jhon"
-                        className="h-[39px] bg-white/50 border-none rounded-[10px] px-5 text-[12px] text-black/70 placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-white"
+                        className="h-[39px] bg-white/50 border-none rounded-[10px] px-4 sm:px-5 text-[12px] text-black/70 placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-white"
                       />
                     </div>
                     <div className="flex flex-col gap-2 flex-1">
@@ -613,19 +617,19 @@ export default function Home() {
                       <input
                         type="email"
                         placeholder="abc@gmail.com"
-                        className="h-[39px] bg-white/50 border-none rounded-[10px] px-5 text-[12px] text-black/70 placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-white"
+                        className="h-[39px] bg-white/50 border-none rounded-[10px] px-4 sm:px-5 text-[12px] text-black/70 placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-white"
                       />
                     </div>
                   </div>
 
                   {/* Phone and Company Row */}
-                  <div className="flex gap-5">
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
                     <div className="flex flex-col gap-2 flex-1">
                       <label className="text-[12px] text-black">Phone</label>
                       <input
                         type="tel"
                         placeholder="(123) 456 - 789"
-                        className="h-[39px] bg-white/50 border-none rounded-[10px] px-5 text-[12px] text-black/70 placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-white"
+                        className="h-[39px] bg-white/50 border-none rounded-[10px] px-4 sm:px-5 text-[12px] text-black/70 placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-white"
                       />
                     </div>
                     <div className="flex flex-col gap-2 flex-1">
@@ -633,7 +637,7 @@ export default function Home() {
                       <input
                         type="text"
                         placeholder="Ex: Microsoft"
-                        className="h-[39px] bg-white/50 border-none rounded-[10px] px-5 text-[12px] text-black/70 placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-white"
+                        className="h-[39px] bg-white/50 border-none rounded-[10px] px-4 sm:px-5 text-[12px] text-black/70 placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-white"
                       />
                     </div>
                   </div>
@@ -643,15 +647,15 @@ export default function Home() {
                     <label className="text-[12px] text-black">Message</label>
                     <textarea
                       placeholder="Please type your message here..."
-                      className="h-[139px] bg-white/40 border-none rounded-[10px] px-5 py-5 text-[12px] text-black/70 placeholder:text-black/50 resize-none focus:outline-none focus:ring-2 focus:ring-white"
+                      className="h-[100px] sm:h-[120px] lg:h-[139px] bg-white/40 border-none rounded-[10px] px-4 sm:px-5 py-4 sm:py-5 text-[12px] text-black/70 placeholder:text-black/50 resize-none focus:outline-none focus:ring-2 focus:ring-white"
                     />
                   </div>
 
                   {/* Send Button */}
-                  <button className="w-full h-[59px] bg-white/20 backdrop-blur-md border border-white/40 rounded-[15px] flex items-center justify-center gap-2 text-[14px] text-black shadow-lg hover:bg-white/30 transition-colors">
+                  <button className="w-full h-[50px] sm:h-[55px] lg:h-[59px] bg-white/20 backdrop-blur-md border border-white/40 rounded-[12px] sm:rounded-[15px] flex items-center justify-center gap-2 text-[13px] sm:text-[14px] text-black shadow-lg hover:bg-white/30 transition-colors">
                     Send Message
-                    <svg className="w-5 h-5 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                     </svg>
                   </button>
                 </div>
@@ -664,23 +668,23 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex flex-col gap-[49px] w-full lg:w-[417px]"
+              className="flex flex-col gap-8 lg:gap-[49px] w-full lg:w-[417px] text-center lg:text-left"
             >
               {/* Header */}
-              <div className="flex flex-col gap-[13px]">
+              <div className="flex flex-col gap-[13px] items-center lg:items-start">
                 <div className="border border-[#e0e0e0] rounded-[13px] px-3 py-2 w-fit">
                   <span className="text-[14px] text-black uppercase">Let's talk</span>
                 </div>
-                <h2 className="text-[77px] font-semibold leading-[71px] tracking-[-4.6px] text-[#0a0a0a]">
+                <h2 className="text-[40px] sm:text-[56px] lg:text-[77px] font-semibold leading-[1.1] tracking-[-2px] lg:tracking-[-4.6px] text-[#0a0a0a]">
                   Get in touch today
                 </h2>
-                <p className="text-[14px] text-[#6b6b6b] leading-normal">
+                <p className="text-[14px] text-[#6b6b6b] leading-normal max-w-[400px]">
                   Lorem ipsum dolor sit amet consectetur adipiscing elit nulla adipiscing tincidunt interdum tellus du.
                 </p>
               </div>
 
               {/* Contact Links */}
-              <div className="flex flex-col w-[296px]">
+              <div className="flex flex-col w-full max-w-[296px] mx-auto lg:mx-0">
                 {/* Email */}
                 <div className="flex items-center gap-1.5 py-3.5 border-b border-[#f2f2f2]">
                   <div className="p-2.5 rounded-[9px]">

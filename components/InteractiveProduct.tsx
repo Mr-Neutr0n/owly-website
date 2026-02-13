@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PlusIcon, ArrowUp, Check } from 'lucide-react';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
+import { GlowingEffect } from '@/components/ui/GlowingEffect';
 
 const InteractiveProduct = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -318,7 +319,16 @@ const InteractiveProduct = () => {
 
                 {/* Input Bar - New Design */}
                 <div className="mt-[30px] md:mt-[60px] relative z-10">
-                  <div className="bg-[#181818] rounded-[15px] shadow-[0px_4px_18px_0px_rgba(0,0,0,0.17)] min-h-[90px] md:min-h-[106px] w-full max-w-[754px] mx-auto flex flex-col px-3 md:px-4 py-3">
+                  <div className="relative bg-[#181818] rounded-[15px] shadow-[0px_4px_18px_0px_rgba(0,0,0,0.17)] min-h-[90px] md:min-h-[106px] w-full max-w-[754px] mx-auto flex flex-col px-3 md:px-4 py-3">
+                    <GlowingEffect
+                      blur={0}
+                      borderWidth={2}
+                      spread={80}
+                      glow={true}
+                      disabled={false}
+                      proximity={100}
+                      inactiveZone={0.01}
+                    />
                     {/* Text Input Area */}
                     <textarea
                       ref={textareaRef}
