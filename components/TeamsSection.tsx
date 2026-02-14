@@ -1,27 +1,11 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import Lenis from 'lenis';
+import React, { useRef } from 'react';
 import { ZoomParallax } from './ui/ZoomParallax';
 import { MagicText } from './ui/magic-text';
 
 const TeamsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
 
   // Images for the zoom parallax effect
   const parallaxImages = [
@@ -45,6 +29,7 @@ const TeamsSection = () => {
           <MagicText
             text="Built for teams that move fast, test ideas often, and scale the video that performs."
             className="text-[107px] font-semibold leading-[99px] tracking-[-6.4px] text-center justify-center text-black"
+            scrollTarget={sectionRef}
           />
         </div>
       </div>

@@ -103,9 +103,7 @@ export const FeatureSection: React.FC<FeatureSectionProps> = ({
             className="flex justify-center"
           >
             <AnimatedWorkflow
-              badges={workflowBadges}
-              title={workflowTitle}
-              lightColor={lightColor}
+              inputs={workflowBadges}
             />
           </motion.div>
 
