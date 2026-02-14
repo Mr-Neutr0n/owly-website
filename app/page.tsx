@@ -7,7 +7,7 @@ import FeaturesSection from '@/components/FeaturesSection';
 import InteractiveProduct from '@/components/InteractiveProduct';
 import { TestimonialsSection } from '@/components/ui/testimonials-with-marquee';
 import WorkflowOrbit from '@/components/WorkflowOrbit';
-import { MagicText } from '@/components/ui/magic-text';
+import TeamsSection from '@/components/TeamsSection';
 
 export default function Home() {
   return (
@@ -56,15 +56,11 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Magic Text Section - Full Viewport */}
-      <div className="relative z-50 bg-white min-h-screen flex items-center justify-center">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 md:px-12 flex justify-center">
-          <MagicText
-            text="Built for teams that move fast, test ideas often, and scale the video that performs."
-            className="text-[32px] sm:text-[56px] md:text-[80px] lg:text-[111px] font-semibold leading-[1.05] tracking-[-2px] sm:tracking-[-4px] lg:tracking-[-6.6795px] text-[#0a0a0a] justify-center text-center"
-          />
-        </div>
-      </div>
+      {/* Teams Section with Zoom Parallax */}
+      <TeamsSection />
+
+      {/* White cover to hide parallax bleed */}
+      <div className="relative z-50 bg-white h-[280px] -mt-[280px]" />
 
       {/* Try it yourself Section - Full Width with Scroll Animation */}
       <div className="relative z-50 bg-white">

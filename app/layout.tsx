@@ -35,8 +35,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${didactGothic.variable} overflow-x-hidden`}>
-      <body className="min-h-screen flex flex-col font-sans overflow-x-hidden">
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${didactGothic.variable}`}>
+      <body className="min-h-screen flex flex-col font-sans">
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />
