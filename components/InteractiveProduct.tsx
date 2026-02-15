@@ -9,6 +9,7 @@ import { GlowingEffect } from '@/components/ui/GlowingEffect';
 
 const InteractiveProduct = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [selectedDuration, setSelectedDuration] = useState('30 sec');
   const [selectedRatio, setSelectedRatio] = useState('9:16');
@@ -53,7 +54,7 @@ const InteractiveProduct = () => {
       <ContainerScroll
         titleComponent={
           <div className="flex flex-col items-center">
-            <h2 className="text-4xl md:text-[68.6px] font-semibold leading-tight md:leading-[63.111px] tracking-[-2px] md:tracking-[-4.116px] text-[#0a0a0a] text-center mb-4">
+            <h2 className="heading-md-fluid text-center mb-4">
               Try it yourself.
             </h2>
             <p className="text-lg md:text-xl text-neutral-600 max-w-2xl text-center">
@@ -63,10 +64,104 @@ const InteractiveProduct = () => {
         }
       >
         {/* Interactive Product Container */}
-        <div className="bg-black rounded-[14px] p-2 flex gap-[3px] w-full h-full overflow-hidden">
-          {/* Animated Sidebar */}
+        <div className="bg-black rounded-[14px] p-1.5 md:p-2 flex flex-col md:flex-row gap-[3px] w-full h-full overflow-hidden relative">
+
+          {/* Mobile Top Navigation - Only visible on mobile */}
+          <div className="md:hidden flex items-center justify-between bg-[#040404] border border-[rgba(64,64,64,0.15)] rounded-[12px] px-4 py-3 flex-shrink-0">
+            {/* Logo */}
+            <div className="h-[28px] w-[70px] relative">
+              <img
+                src="/images/interactive-product/owly-logo-full.png"
+                alt="Owly"
+                className="absolute h-full max-w-none"
+                style={{ width: '90px', left: '-10px', top: '0' }}
+              />
+            </div>
+
+            {/* Hamburger Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+            >
+              {mobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+          </div>
+
+          {/* Mobile Dropdown Menu */}
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.2 }}
+                className="md:hidden absolute top-[60px] left-2 right-2 z-50 bg-[#0a0a0a] border border-[rgba(64,64,64,0.2)] rounded-[12px] overflow-hidden"
+              >
+                <div className="p-4 flex flex-col gap-2">
+                  {/* Menu Items */}
+                  <div className="bg-[#111] rounded-[8px] px-4 py-3 flex items-center gap-3 cursor-pointer">
+                    <Image src="/images/interactive-product/create-icon-new.svg" alt="Create" width={14} height={14} />
+                    <span className="text-[#a8a8a8] text-[14px] font-medium">Create New Video</span>
+                  </div>
+                  <div className="rounded-[8px] px-4 py-3 flex items-center gap-3 hover:bg-[rgba(255,255,255,0.05)] transition-colors cursor-pointer">
+                    <Image src="/images/interactive-product/library-icon-new.svg" alt="Library" width={15} height={15} />
+                    <span className="text-[#a8a8a8] text-[14px] font-medium">Video Library</span>
+                  </div>
+                  <div className="rounded-[8px] px-4 py-3 flex items-center gap-3 hover:bg-[rgba(255,255,255,0.05)] transition-colors cursor-pointer">
+                    <Image src="/images/interactive-product/explore-icon-new.svg" alt="Explore" width={21} height={21} />
+                    <span className="text-[#a8a8a8] text-[14px] font-medium">Explores</span>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="h-[1px] bg-white/10 my-2" />
+
+                  {/* Credits Section */}
+                  <div className="bg-[#131313] rounded-[9px] p-3">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="h-[40px] w-[40px] relative flex-shrink-0">
+                        <Image src="/images/interactive-product/remaining-credits-icon.png" alt="Credits" fill className="object-contain" />
+                      </div>
+                      <div className="flex flex-col gap-2 flex-1">
+                        <span className="text-[#a6a6a6] text-[14px]">45% Credit left</span>
+                        <div className="h-[4px] bg-[#333] rounded-full overflow-hidden">
+                          <div className="h-full w-[45%] bg-gradient-to-r from-[#27fda7] to-[#4f46e5] rounded-full" />
+                        </div>
+                      </div>
+                    </div>
+                    <button className="w-full bg-[#050505] rounded-[8px] px-4 py-3 text-[#d9d9d9] text-[14px] font-medium hover:bg-[rgba(255,255,255,0.05)] transition-colors">
+                      Upgrade Now
+                    </button>
+                  </div>
+
+                  {/* User Info */}
+                  <div className="bg-[#131313] rounded-[8px] p-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-[35px] h-[35px] bg-[#411d73] rounded-[6px] flex items-center justify-center flex-shrink-0">
+                        <span className="text-[#d5d5d5] text-[14px] font-bold">AV</span>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-white text-[14px]">Aadith V A</p>
+                        <p className="text-[#d5d5d5] text-[12px] truncate">aaadithachu@gmail.com</p>
+                      </div>
+                      <Image src="/images/interactive-product/settings-icon.svg" alt="Settings" width={16} height={15} />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Animated Sidebar - Hidden on mobile */}
           <motion.div
-            className="bg-[#040404] border border-[rgba(64,64,64,0.15)] rounded-[12px] h-full flex-shrink-0 shadow-[0px_8px_31px_0px_rgba(0,0,0,0.3),inset_0px_1px_0px_0px_rgba(64,64,64,0.2)] overflow-hidden"
+            className="hidden md:block bg-[#040404] border border-[rgba(64,64,64,0.15)] rounded-[12px] h-full flex-shrink-0 shadow-[0px_8px_31px_0px_rgba(0,0,0,0.3),inset_0px_1px_0px_0px_rgba(64,64,64,0.2)] overflow-hidden"
             animate={{
               width: sidebarOpen ? '273px' : '66px',
             }}
@@ -261,7 +356,7 @@ const InteractiveProduct = () => {
           </motion.div>
 
           {/* Main Content */}
-          <div className="flex-1 relative rounded-[11px] overflow-hidden">
+          <div className="flex-1 relative rounded-[11px] overflow-hidden min-h-[400px] md:min-h-0">
             {/* Background */}
             <div className="absolute inset-0">
               <Image
@@ -275,31 +370,9 @@ const InteractiveProduct = () => {
 
             {/* Content */}
             <div className="relative h-full flex flex-col justify-between p-[7px]">
-              {/* Top Header */}
-              <div className="bg-[rgba(0,0,0,0.59)] rounded-[6px] px-[17px] py-[10px] flex items-center justify-between">
-                <div className="flex items-center gap-[8px] opacity-70">
-                  <div className="w-[23px] h-[23px] rounded-md overflow-hidden">
-                    <Image
-                      src="/images/interactive-product/header-user.svg"
-                      alt="User"
-                      width={23}
-                      height={23}
-                    />
-                  </div>
-                  <span className="text-[#f3f3f3] text-[12px] font-bold">Quenzy</span>
-                </div>
-                <button className="text-gray-400 hover:text-gray-200">
-                  <Image
-                    src="/images/interactive-product/header-menu.svg"
-                    alt="Menu"
-                    width={23}
-                    height={24}
-                  />
-                </button>
-              </div>
 
               {/* Center Content */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-[50px] md:px-[100px]">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4 sm:px-[50px] md:px-[100px]">
                 {/* Glow Effect */}
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[600px] h-[300px] md:h-[400px] opacity-30 pointer-events-none">
                   <Image
@@ -310,16 +383,16 @@ const InteractiveProduct = () => {
                   />
                 </div>
 
-                <h3 className="text-white text-[32px] md:text-[48px] font-normal leading-[36px] md:leading-[42px] tracking-[-0.5px] md:tracking-[-0.96px] mb-3 relative z-10 font-didact">
+                <h3 className="text-white text-[32px] sm:text-[40px] md:text-[48px] font-normal leading-[36px] sm:leading-[44px] md:leading-[52px] tracking-[-0.5px] md:tracking-[-0.96px] mb-2 sm:mb-3 relative z-10 font-didact">
                   Hey Guest!
                 </h3>
-                <p className="text-[rgba(255,255,255,0.37)] text-[24px] md:text-[36px] leading-[28px] md:leading-[42px] tracking-[-0.5px] md:tracking-[-0.72px] relative z-10 font-didact">
+                <p className="text-[rgba(255,255,255,0.37)] text-[24px] sm:text-[30px] md:text-[36px] leading-[28px] sm:leading-[34px] md:leading-[42px] tracking-[-0.5px] md:tracking-[-0.72px] relative z-10 font-didact">
                   What are we Creating today?
                 </p>
 
                 {/* Input Bar - New Design */}
-                <div className="mt-[30px] md:mt-[60px] relative z-10">
-                  <div className="relative bg-[#181818] rounded-[15px] shadow-[0px_4px_18px_0px_rgba(0,0,0,0.17)] min-h-[90px] md:min-h-[106px] w-full max-w-[754px] mx-auto flex flex-col px-3 md:px-4 py-3">
+                <div className="mt-[20px] sm:mt-[30px] md:mt-[60px] relative z-10">
+                  <div className="relative bg-[#181818] rounded-[12px] sm:rounded-[15px] shadow-[0px_4px_18px_0px_rgba(0,0,0,0.17)] min-h-[80px] sm:min-h-[90px] md:min-h-[106px] w-full max-w-[754px] mx-auto flex flex-col px-3 md:px-4 py-3">
                     <GlowingEffect
                       blur={0}
                       borderWidth={2}

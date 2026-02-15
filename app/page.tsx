@@ -29,15 +29,15 @@ export default function Home() {
         </div>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-x-2 top-0 h-[228px] bg-gradient-to-b from-black/65 to-transparent rounded-t-[14px] px-[38px] py-[46px] flex justify-between items-start">
+        <div className="absolute inset-x-2 top-0 h-auto min-h-[180px] sm:min-h-[200px] lg:h-[228px] bg-gradient-to-b from-black/65 to-transparent rounded-t-[14px] px-4 sm:px-6 lg:px-[38px] py-6 sm:py-8 lg:py-[46px] flex flex-col lg:flex-row justify-between items-start gap-4 lg:gap-8">
           {/* Left side - Main headline */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-[554px]"
+            className="w-full lg:max-w-[554px]"
           >
-            <h1 className="text-[68.6px] font-semibold text-white leading-[63px] tracking-[-4.116px]">
+            <h1 className="text-[32px] sm:text-[44px] md:text-[56px] lg:text-[clamp(56px,5vw,68.6px)] font-semibold text-white leading-[1.05] tracking-[-2px] sm:tracking-[-3px] lg:tracking-[-4.116px]">
               Re-invent your Ad workflow
             </h1>
           </motion.div>
@@ -47,9 +47,9 @@ export default function Home() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="w-[374px]"
+            className="w-full lg:max-w-[374px]"
           >
-            <p className="text-white/70 text-[16px] leading-[25.4px] text-right">
+            <p className="text-white/70 text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.5] text-left lg:text-right">
               Owly helps performance and brand teams plan, create, iterate, and launch ad videos
             </p>
           </motion.div>
@@ -72,15 +72,15 @@ export default function Home() {
         <FeaturesSection />
       </div>
 
-      <div className="max-w-[1442px] mx-auto px-4 relative z-20 bg-white">
+      <div className="page-container relative z-20 bg-white">
       {/* Video Formats Text Section */}
       <section className="mt-[40px] sm:mt-[60px] lg:mt-[100px] py-10 sm:py-16 lg:py-20 pb-[40px] sm:pb-[60px] lg:pb-[100px] bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12">
+        <div className="max-w-5xl mx-auto">
           <div className="flex flex-col gap-[16px] sm:gap-[24px] lg:gap-[35px] items-center text-center">
-            <h2 className="text-[32px] sm:text-[56px] md:text-[80px] lg:text-[111px] font-semibold leading-[1.05] tracking-[-2px] sm:tracking-[-4px] lg:tracking-[-6.6795px] text-[#0a0a0a]">
+            <h2 className="heading-xl-fluid">
               Create every kind of video your marketing needs.
             </h2>
-            <p className="text-[16px] sm:text-[20px] lg:text-[31px] leading-[1.5] text-[#6b6b6b]">
+            <p className="subtext-lg-fluid">
               One workflow. Multiple video formats.
             </p>
           </div>
@@ -91,8 +91,8 @@ export default function Home() {
       <VideoTypesSection />
 
       {/* Your new secret weapon Section - Before/After Comparison */}
-      <section className="mt-[80px] sm:mt-[120px] md:mt-[180px] lg:mt-[255px] py-12 sm:py-16 lg:py-20 bg-white">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mt-[80px] sm:mt-[120px] md:mt-[180px] lg:mt-[clamp(180px,15vw,255px)] py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="page-container">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -101,7 +101,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-[32px] sm:mb-[40px] lg:mb-[57px]"
           >
-            <h2 className="text-[32px] sm:text-[48px] md:text-[60px] lg:text-[77px] font-semibold leading-[1.1] tracking-[-2px] lg:tracking-[-4.6px] text-[#0a0a0a] mb-4">
+            <h2 className="heading-lg-fluid mb-4">
               Your new secret weapon<br className="hidden sm:block" /><span className="sm:hidden"> </span>for video Ads
             </h2>
             <p className="text-[14px] sm:text-[15px] leading-[22px] sm:leading-[24px] text-[#6b6b6b] max-w-[500px] mx-auto px-4 sm:px-0">
@@ -167,8 +167,8 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Animated Circular Workflow Diagram */}
-              <div className="absolute bottom-[10px] sm:bottom-[15px] lg:bottom-[20px] left-1/2 -translate-x-1/2 scale-[0.65] sm:scale-[0.85] lg:scale-100 origin-bottom">
+              {/* Animated Circular Workflow Diagram - Hidden for now */}
+              <div className="hidden absolute bottom-[10px] sm:bottom-[15px] lg:bottom-[20px] left-1/2 -translate-x-1/2 scale-[0.65] sm:scale-[0.85] lg:scale-100 origin-bottom">
                 <WorkflowOrbit />
               </div>
             </motion.div>
@@ -227,11 +227,11 @@ export default function Home() {
       </div>
 
       {/* Want Your Business to Shine - Matching Figma Layout */}
-      <section className="mt-[120px] py-12 lg:py-20 bg-white">
-        <div className="max-w-[1495px] mx-auto px-4">
+      <section className="mt-[clamp(80px,10vw,120px)] py-12 lg:py-20 bg-white">
+        <div className="page-container-wide">
 
           {/* Mobile Layout - Hidden on desktop */}
-          <div className="lg:hidden flex flex-col gap-8">
+          <div className="xl:hidden flex flex-col gap-8">
             {/* Heading */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -245,7 +245,7 @@ export default function Home() {
                   Owly your video partner
                 </span>
               </div>
-              <h2 className="text-[40px] sm:text-[56px] font-semibold leading-[1] tracking-[-2px] text-[#0a0a0a]">
+              <h2 className="heading-sm-fluid">
                 Want Your Business to Shine?
               </h2>
             </motion.div>
@@ -381,8 +381,9 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Desktop Layout - Hidden on mobile */}
-          <div className="hidden lg:block relative h-[993px]">
+          {/* Desktop Layout - Hidden on mobile/tablet, scales with viewport */}
+          <div className="hidden xl:block relative" style={{ height: 'clamp(700px, 66vw, 993px)' }}>
+            {/* Scale factor: original design was 1495px wide, use percentage positioning */}
 
             {/* Left Column - Woman with Popsicle */}
             <motion.div
@@ -390,7 +391,8 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="absolute left-0 top-[89px] w-[357px] h-[459px] rounded-[21px] overflow-hidden z-[10]"
+              className="absolute left-0 rounded-[21px] overflow-hidden z-[10]"
+              style={{ top: '9%', width: 'clamp(220px, 24%, 357px)', height: 'clamp(280px, 46%, 459px)' }}
             >
               <Image
                 src="/images/shine/01-woman-popsicle.png"
@@ -409,7 +411,8 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="absolute left-0 top-[571px] w-[357px] h-[422px] rounded-[21px] overflow-hidden z-[10]"
+              className="absolute left-0 rounded-[21px] overflow-hidden z-[10]"
+              style={{ top: '57.5%', width: 'clamp(220px, 24%, 357px)', height: 'clamp(260px, 42.5%, 422px)' }}
             >
               <Image
                 src="/images/shine/02-billie-pink-product.png"
@@ -428,7 +431,8 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="absolute left-[620px] top-[-40px] w-[750px] h-[500px] z-[5]"
+              className="absolute z-[5]"
+              style={{ left: '41%', top: '-4%', width: 'clamp(450px, 50%, 750px)', height: 'clamp(300px, 50%, 500px)' }}
             >
               <Image
                 src="/images/shine/06-daisy-flowers.png"
@@ -444,7 +448,8 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="absolute left-[400px] top-[89px] w-[577px] z-20"
+              className="absolute z-20"
+              style={{ left: '27%', top: '9%', width: 'clamp(350px, 38.5%, 577px)' }}
             >
               <div className="flex flex-col gap-[21px] items-start">
                 <div className="border border-[#e0e0e0] rounded-[13px] px-[12px] py-[8px]">
@@ -452,7 +457,7 @@ export default function Home() {
                     Owly your video partner
                   </span>
                 </div>
-                <h2 className="text-[111.325px] font-semibold leading-[102.419px] tracking-[-6.6795px] text-[#0a0a0a]">
+                <h2 className="heading-xl-fluid">
                   Want Your<br />Business to<br />Shine?
                 </h2>
               </div>
@@ -464,7 +469,8 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="absolute left-[384px] top-[479px] w-[357px] h-[514px] rounded-[21px] overflow-hidden z-[10]"
+              className="absolute rounded-[21px] overflow-hidden z-[10]"
+              style={{ left: '25.7%', top: '48%', width: 'clamp(220px, 24%, 357px)', height: 'clamp(320px, 51.8%, 514px)' }}
             >
               <Image
                 src="/images/shine/03-coca-cola-cans.png"
@@ -483,7 +489,8 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="absolute left-[762px] top-[396px] w-[357px] h-[431px] rounded-[21px] overflow-hidden z-[10]"
+              className="absolute rounded-[21px] overflow-hidden z-[10]"
+              style={{ left: '51%', top: '40%', width: 'clamp(220px, 24%, 357px)', height: 'clamp(270px, 43.4%, 431px)' }}
             >
               <Image
                 src="/images/shine/04-phone-cases.png"
@@ -502,12 +509,13 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="absolute left-[761px] top-[846px] w-[357px] flex flex-col items-center gap-[18px]"
+              className="absolute flex flex-col items-center gap-[18px]"
+              style={{ left: '51%', top: '85%', width: 'clamp(220px, 24%, 357px)' }}
             >
-              <p className="font-normal text-[16px] text-[#6b6b6b] w-[344px]">
+              <p className="font-normal text-[14px] xl:text-[16px] text-[#6b6b6b] w-full max-w-[344px]">
                 Generate branded promotional content that converts viewers into customers.
               </p>
-              <button className="w-full h-[87px] bg-black text-white text-[24px] font-bold rounded-[20px] hover:bg-neutral-800 transition-colors flex items-center justify-center">
+              <button className="w-full h-[clamp(60px,6vw,87px)] bg-black text-white text-[clamp(16px,1.6vw,24px)] font-bold rounded-[20px] hover:bg-neutral-800 transition-colors flex items-center justify-center">
                 Try it free
               </button>
             </motion.div>
@@ -518,7 +526,8 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="absolute left-[1030px] top-[89px] w-[439px] h-[289px] rounded-[22px] overflow-hidden z-[1]"
+              className="absolute rounded-[22px] overflow-hidden z-[1]"
+              style={{ left: '76%', top: '9%', width: 'clamp(200px, 24%, 357px)', height: 'clamp(140px, 24%, 250px)' }}
             >
               <Image
                 src="/images/shine/05-tfit-skincare-beach.png"
@@ -534,7 +543,8 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="absolute left-[1138px] top-[396px] w-[357px] h-[333px] rounded-[21px] overflow-hidden z-[10]"
+              className="absolute rounded-[21px] overflow-hidden z-[10]"
+              style={{ left: '76%', top: '40%', width: 'clamp(220px, 24%, 357px)', height: 'clamp(210px, 33.5%, 333px)' }}
             >
               <Image
                 src="/images/shine/07-nike-golf-ball.png"
@@ -553,7 +563,8 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="absolute left-[1138px] top-[745px] w-[357px] h-[248px] rounded-[21px] overflow-hidden z-[10]"
+              className="absolute rounded-[21px] overflow-hidden z-[10]"
+              style={{ left: '76%', top: '75%', width: 'clamp(220px, 24%, 357px)', height: 'clamp(155px, 25%, 248px)' }}
             >
               <Image
                 src="/images/shine/08-mcdonalds-happy-meal.png"
@@ -571,8 +582,8 @@ export default function Home() {
       </section>
 
       {/* Get in touch today Section */}
-      <section id="contact" className="mt-[80px] sm:mt-[120px] lg:mt-[255px] py-12 sm:py-16 lg:py-20 bg-white">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="mt-[80px] sm:mt-[120px] lg:mt-[clamp(180px,15vw,255px)] py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="page-container">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-[69px] items-center">
             {/* Left side - Form with background image */}
             <motion.div
@@ -593,27 +604,27 @@ export default function Home() {
 
               {/* Form Container */}
               <div className="relative m-4 sm:m-8 lg:m-[72px] lg:mt-[78px]">
-                {/* Glassmorphism background */}
-                <div className="absolute inset-0 bg-white/30 backdrop-blur-md rounded-[16px] sm:rounded-[20px] border border-white/50" />
+                {/* Solid white background */}
+                <div className="absolute inset-0 bg-white rounded-[16px] sm:rounded-[20px] shadow-[0px_4px_18px_rgba(0,0,0,0.12)]" />
 
                 {/* Form Fields */}
                 <div className="relative p-5 sm:p-6 lg:p-8 flex flex-col gap-5 sm:gap-6 lg:gap-7">
                   {/* Name and Email Row */}
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
                     <div className="flex flex-col gap-2 flex-1">
-                      <label className="text-[12px] text-black">Name</label>
+                      <label className="text-[12px] font-medium text-black">Name</label>
                       <input
                         type="text"
                         placeholder="Ex; Jhon"
-                        className="h-[39px] bg-white/50 border-none rounded-[10px] px-4 sm:px-5 text-[12px] text-black/70 placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-white"
+                        className="h-[44px] bg-[#f7f7f7] border border-[#e5e5e5] rounded-[10px] px-4 sm:px-5 text-[13px] text-black placeholder:text-[#999] focus:outline-none focus:border-black transition-colors"
                       />
                     </div>
                     <div className="flex flex-col gap-2 flex-1">
-                      <label className="text-[12px] text-black">Email</label>
+                      <label className="text-[12px] font-medium text-black">Email</label>
                       <input
                         type="email"
                         placeholder="abc@gmail.com"
-                        className="h-[39px] bg-white/50 border-none rounded-[10px] px-4 sm:px-5 text-[12px] text-black/70 placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-white"
+                        className="h-[44px] bg-[#f7f7f7] border border-[#e5e5e5] rounded-[10px] px-4 sm:px-5 text-[13px] text-black placeholder:text-[#999] focus:outline-none focus:border-black transition-colors"
                       />
                     </div>
                   </div>
@@ -621,34 +632,34 @@ export default function Home() {
                   {/* Phone and Company Row */}
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
                     <div className="flex flex-col gap-2 flex-1">
-                      <label className="text-[12px] text-black">Phone</label>
+                      <label className="text-[12px] font-medium text-black">Phone</label>
                       <input
                         type="tel"
                         placeholder="(123) 456 - 789"
-                        className="h-[39px] bg-white/50 border-none rounded-[10px] px-4 sm:px-5 text-[12px] text-black/70 placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-white"
+                        className="h-[44px] bg-[#f7f7f7] border border-[#e5e5e5] rounded-[10px] px-4 sm:px-5 text-[13px] text-black placeholder:text-[#999] focus:outline-none focus:border-black transition-colors"
                       />
                     </div>
                     <div className="flex flex-col gap-2 flex-1">
-                      <label className="text-[12px] text-black">Company</label>
+                      <label className="text-[12px] font-medium text-black">Company</label>
                       <input
                         type="text"
                         placeholder="Ex: Microsoft"
-                        className="h-[39px] bg-white/50 border-none rounded-[10px] px-4 sm:px-5 text-[12px] text-black/70 placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-white"
+                        className="h-[44px] bg-[#f7f7f7] border border-[#e5e5e5] rounded-[10px] px-4 sm:px-5 text-[13px] text-black placeholder:text-[#999] focus:outline-none focus:border-black transition-colors"
                       />
                     </div>
                   </div>
 
                   {/* Message */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-[12px] text-black">Message</label>
+                    <label className="text-[12px] font-medium text-black">Message</label>
                     <textarea
                       placeholder="Please type your message here..."
-                      className="h-[100px] sm:h-[120px] lg:h-[139px] bg-white/40 border-none rounded-[10px] px-4 sm:px-5 py-4 sm:py-5 text-[12px] text-black/70 placeholder:text-black/50 resize-none focus:outline-none focus:ring-2 focus:ring-white"
+                      className="h-[100px] sm:h-[120px] lg:h-[139px] bg-[#f7f7f7] border border-[#e5e5e5] rounded-[10px] px-4 sm:px-5 py-4 sm:py-5 text-[13px] text-black placeholder:text-[#999] resize-none focus:outline-none focus:border-black transition-colors"
                     />
                   </div>
 
                   {/* Send Button */}
-                  <button className="w-full h-[50px] sm:h-[55px] lg:h-[59px] bg-white/20 backdrop-blur-md border border-white/40 rounded-[12px] sm:rounded-[15px] flex items-center justify-center gap-2 text-[13px] sm:text-[14px] text-black shadow-lg hover:bg-white/30 transition-colors">
+                  <button className="w-full h-[50px] sm:h-[55px] lg:h-[59px] bg-black rounded-[12px] sm:rounded-[15px] flex items-center justify-center gap-2 text-[14px] sm:text-[15px] font-semibold text-white hover:bg-neutral-800 transition-colors">
                     Send Message
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
@@ -671,7 +682,7 @@ export default function Home() {
                 <div className="border border-[#e0e0e0] rounded-[13px] px-3 py-2 w-fit">
                   <span className="text-[14px] text-black uppercase">Let's talk</span>
                 </div>
-                <h2 className="text-[40px] sm:text-[56px] lg:text-[77px] font-semibold leading-[1.1] tracking-[-2px] lg:tracking-[-4.6px] text-[#0a0a0a]">
+                <h2 className="heading-lg-fluid">
                   Get in touch today
                 </h2>
                 <p className="text-[14px] text-[#6b6b6b] leading-normal max-w-[400px]">

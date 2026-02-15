@@ -26,10 +26,10 @@ export function TestimonialsSection({
     )}>
       <div className="mx-auto flex max-w-container flex-col items-center gap-4 text-center sm:gap-16">
         <div className="flex flex-col items-center gap-[13px] px-4">
-          <h2 className="text-[77px] font-semibold leading-[71px] tracking-[-4.6px] text-[#0a0a0a] text-center">
+          <h2 className="text-[32px] sm:text-[48px] md:text-[60px] lg:text-[77px] font-semibold leading-[1.1] tracking-[-2px] sm:tracking-[-3px] lg:tracking-[-4.6px] text-[#0a0a0a] text-center">
             {title}
           </h2>
-          <p className="text-[15px] leading-[24px] text-[#6b6b6b] text-center max-w-[600px]">
+          <p className="text-[14px] sm:text-[15px] leading-[22px] sm:leading-[24px] text-[#6b6b6b] text-center max-w-[600px]">
             {description}
           </p>
         </div>

@@ -47,12 +47,12 @@ export const StatsHeroBento: React.FC<StatsHeroBentoProps> = ({ className }) => 
           </h1>
         </motion.div>
 
-        {/* Pipeline Visualization - No Container */}
+        {/* Pipeline Visualization - Hidden for now */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="relative min-h-[450px] md:min-h-[500px] flex items-center justify-center"
+          className="hidden relative min-h-[450px] md:min-h-[500px] flex items-center justify-center"
         >
           {/* Animated Workflow */}
           <AnimatedWorkflow

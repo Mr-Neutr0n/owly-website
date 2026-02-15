@@ -88,9 +88,9 @@ export const Card = ({
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
         transformOrigin: "center top",
       }}
-      className="w-full max-w-[98vw] md:max-w-[94vw] mx-auto h-[calc(100vh-80px)] min-h-[600px] max-h-[1100px] border-4 border-[#6C6C6C] p-2 md:p-4 bg-[#222222] rounded-[30px] shadow-2xl"
+      className="w-full max-w-[98vw] md:max-w-[94vw] mx-auto h-[calc(100vh-80px)] min-h-[600px] max-h-[1100px] border-2 border-[#3a3a3a] p-1 bg-[#1a1a1a] rounded-[20px] shadow-2xl"
     >
-      <div className="h-full w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl md:p-2">
+      <div className="h-full w-full overflow-hidden rounded-[16px]">
         {children}
       </div>
     </motion.div>

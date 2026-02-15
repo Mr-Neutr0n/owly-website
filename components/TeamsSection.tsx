@@ -25,10 +25,10 @@ const TeamsSection = () => {
 
       {/* Text Overlay - Fixed position during scroll */}
       <div className="absolute top-0 left-0 w-full h-screen pointer-events-none sticky flex items-center justify-center z-10 bg-white" style={{ top: 0 }}>
-        <div className="max-w-[900px] mx-auto px-8 md:px-12 w-full">
+        <div className="page-container w-full">
           <MagicText
             text="Built for teams that move fast, test ideas often, and scale the video that performs."
-            className="text-[107px] font-semibold leading-[99px] tracking-[-6.4px] text-center justify-center text-black"
+            className="heading-xl-fluid text-center justify-center text-black"
             scrollTarget={sectionRef}
           />
         </div>

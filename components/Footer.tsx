@@ -24,16 +24,6 @@ const Footer = () => {
       </div>
 
       <div className="relative min-h-[400px] md:min-h-[566px] px-6 md:px-[70px] py-12 md:py-[80px] flex flex-col">
-        {/* Daisy Flowers - Center Bottom (hidden on mobile) */}
-        <div className="hidden md:block absolute left-1/2 -translate-x-1/2 bottom-0 w-[758px] h-[567px] pointer-events-none">
-          <Image
-            src="/images/footer/daisy-flowers.png"
-            alt="Daisy flowers"
-            fill
-            className="object-contain object-bottom"
-          />
-        </div>
-
         {/* Main Content - Flex Layout */}
         <div className="relative z-10 flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-20">
           {/* Left Section - Logo and Social */}

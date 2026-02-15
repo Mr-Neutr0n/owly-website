@@ -91,7 +91,7 @@ const FeaturesSection = () => {
       ref={sectionRef}
       className="min-h-screen py-20 md:py-28 lg:py-32 bg-white flex items-center"
     >
-      <div className="max-w-[1500px] mx-auto px-6 md:px-12 lg:px-16 w-full">
+      <div className="page-container w-full">
         <div className="flex flex-col lg:flex-row gap-[60px] lg:gap-[100px] items-center justify-between">
           {/* Left Column - Features Content */}
           <div className="w-full lg:w-[450px] flex flex-col gap-[63px]">
@@ -103,16 +103,16 @@ const FeaturesSection = () => {
               </span>
 
               {/* Heading */}
-              <h2 className="text-[40px] md:text-[50px] lg:text-[56px] font-semibold leading-[1] tracking-[-2px] text-black">
+              <h2 className="heading-sm-fluid text-black">
                 Create ad videos end-to-end
               </h2>
 
               {/* Buttons */}
-              <div className="flex gap-[12px] items-center">
-                <button className="bg-black text-[#fbfbef] font-semibold text-[19px] tracking-[-1.15px] px-[17px] py-[10px] h-[50px] rounded-[16px] hover:bg-neutral-800 transition-colors duration-200">
+              <div className="flex flex-wrap gap-3 sm:gap-[12px] items-center">
+                <button className="bg-black text-[#fbfbef] font-semibold text-[16px] sm:text-[19px] tracking-[-1px] sm:tracking-[-1.15px] px-4 sm:px-[17px] py-[10px] h-[46px] sm:h-[50px] rounded-[14px] sm:rounded-[16px] hover:bg-neutral-800 transition-colors duration-200">
                   Try it free
                 </button>
-                <button className="border border-[#474747] text-[#1a2a3b] font-semibold text-[19px] tracking-[-1.15px] px-[17px] py-[10px] h-[50px] rounded-[16px] hover:bg-neutral-50 transition-colors duration-200">
+                <button className="border border-[#474747] text-[#1a2a3b] font-semibold text-[16px] sm:text-[19px] tracking-[-1px] sm:tracking-[-1.15px] px-4 sm:px-[17px] py-[10px] h-[46px] sm:h-[50px] rounded-[14px] sm:rounded-[16px] hover:bg-neutral-50 transition-colors duration-200">
                   Book a Demo
                 </button>
               </div>
