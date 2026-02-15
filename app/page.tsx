@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import VideoTypesSection from '@/components/VideoTypesSection';
@@ -10,6 +10,19 @@ import WorkflowOrbit from '@/components/WorkflowOrbit';
 import TeamsSection from '@/components/TeamsSection';
 
 export default function Home() {
+  const [shineScale, setShineScale] = useState(1);
+
+  useEffect(() => {
+    const updateShineScale = () => {
+      const availableWidth = window.innerWidth - 32; // 32px = 2rem padding
+      const scale = Math.min(1, availableWidth / 1495);
+      setShineScale(scale);
+    };
+    updateShineScale();
+    window.addEventListener('resize', updateShineScale);
+    return () => window.removeEventListener('resize', updateShineScale);
+  }, []);
+
   return (
     <div className="bg-white min-h-screen pt-[70px]">
       {/* Hero Section with Image Background - Full Width */}
@@ -383,8 +396,22 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Desktop Layout - Hidden on mobile */}
-          <div className="hidden lg:block relative h-[993px]">
+          {/* Desktop Layout - Hidden on mobile, scales responsively */}
+          <div
+            className="hidden lg:flex justify-center"
+            style={{
+              height: `${993 * shineScale}px`,
+            }}
+          >
+            <div
+              className="relative"
+              style={{
+                width: `${1495 * shineScale}px`,
+                height: `${993 * shineScale}px`,
+                transform: `scale(${shineScale})`,
+                transformOrigin: 'top left',
+              }}
+            >
 
             {/* Left Column - Woman with Popsicle */}
             <motion.div
@@ -568,6 +595,7 @@ export default function Home() {
               </div>
             </motion.div>
 
+            </div>
           </div>
         </div>
       </section>
