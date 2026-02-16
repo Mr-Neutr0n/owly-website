@@ -30,42 +30,42 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="relative h-[calc(100vh-80px)] min-h-[500px] w-full px-2 mt-[8px]"
+        className="relative h-[calc(100vh-80px)] min-h-[500px] w-full px-2 pt-2 pb-[6px] mt-[7px]"
       >
-        {/* Background Image */}
-        <div className="absolute inset-x-2 inset-y-0 overflow-hidden pointer-events-none rounded-[14px]">
+        {/* Inner container - creates the rounded inset card with spacing on all sides */}
+        <div className="relative w-full h-full rounded-[14px] overflow-hidden">
+          {/* Background Image */}
           <img
             src="/images/hero/hero-background.png"
             alt="Hero background"
-            className="absolute w-full h-full object-cover scale-125"
+            className="absolute inset-0 w-full h-full object-cover scale-125 pointer-events-none"
           />
-        </div>
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-x-2 top-0 h-auto min-h-[180px] sm:min-h-[200px] lg:h-[228px] bg-gradient-to-b from-black/65 to-transparent rounded-t-[14px] px-4 sm:px-6 lg:px-[38px] py-6 sm:py-8 lg:py-[46px] flex flex-col lg:flex-row justify-between items-start gap-4 lg:gap-8">
-          {/* Left side - Main headline */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-full lg:max-w-[554px]"
-          >
-            <h1 className="text-[32px] sm:text-[44px] md:text-[56px] lg:text-[clamp(56px,5vw,68.6px)] font-semibold text-white leading-[1.05] tracking-[-2px] sm:tracking-[-3px] lg:tracking-[-4.116px]">
-              Re-invent your Ad workflow
-            </h1>
-          </motion.div>
+          {/* Gradient Overlay - Full height fade */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/65 to-transparent">
+            {/* Content Container */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex flex-col gap-[10px] px-4 sm:px-6 lg:px-[38px] pt-6 sm:pt-8 lg:pt-[40px] max-w-[845px]"
+            >
+              {/* Main Headline */}
+              <div className="font-semibold text-white leading-[1.05] tracking-[-3px] sm:tracking-[-4px] lg:tracking-[-6.55px]">
+                <h1 className="text-[32px] sm:text-[50px] md:text-[70px] lg:text-[109px]">
+                  <span className="whitespace-nowrap">Re-invent your Ad</span>
+                </h1>
+                <h1 className="text-[32px] sm:text-[50px] md:text-[70px] lg:text-[109px]">
+                  workflow
+                </h1>
+              </div>
 
-          {/* Right side - Description */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="w-full lg:max-w-[374px]"
-          >
-            <p className="text-white/70 text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.5] text-left lg:text-right">
-              Owly helps performance and brand teams plan, create, iterate, and launch ad videos
-            </p>
-          </motion.div>
+              {/* Description */}
+              <p className="text-white text-[16px] sm:text-[22px] md:text-[30px] lg:text-[42px] leading-[1.1] tracking-[-0.5px] sm:tracking-[-1.5px] lg:tracking-[-2.5px] max-w-[850px]">
+                Owly unifies ideation, video creation, editing, publishing, and performance analytics into one intelligent workflow — so every campaign makes the next one better.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </motion.section>
 
