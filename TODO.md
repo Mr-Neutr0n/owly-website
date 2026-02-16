@@ -1,8 +1,18 @@
 # Website TODO
 
+## New Features
+
+- [ ] Build functional ad script generator tool on /tools/video-ad-script-generator
+  - [ ] Rate limit API calls (per IP or session)
+  - [ ] Make the tool interactive and working
+  - [ ] Fix the tools page layout for this
+- [ ] Create custom 404 page (app/not-found.tsx)
+- [ ] Add modal on InteractiveProduct demo homescreen
+  - [ ] On clicking "Create" or interacting, show modal with link to app.owly.studio or contact form
+
 ## SEO Content Fixes
 
-- [ ] Remove em dashes (--) from all blog MDX files
+- [x] Remove em dashes (--) from all blog MDX files
 - [ ] Blog posts are too barebones - add more elements:
   - [ ] Add hero images per post (not reusing shine gallery images)
   - [ ] Add inline images/diagrams within post body
@@ -15,14 +25,69 @@
 
 ## /make and /tools Pages - Need Visual Polish
 
-- [ ] Reuse existing site components (GlowingEffect on feature cards, motion animations)
-- [ ] Add hero section with background image or gradient (like main site hero)
+- [x] Reuse existing site components (GlowingEffect on feature cards, motion animations)
+- [x] Add hero section with background image or gradient (like main site hero)
 - [ ] Add an interactive product preview or mockup screenshot
-- [ ] Add FAQ section with schema markup (faqSchema already exists in lib/schema.ts)
+- [x] Add FAQ section with schema markup (faqSchema already exists in lib/schema.ts)
 - [ ] Add testimonial or social proof element
-- [ ] Add "How it works" steps section with icons
+- [x] Add "How it works" steps section with icons
 - [ ] /tools pages need actual interactive tool components (Phase 3)
-- [ ] Better CTA section - reuse the black rounded card style from blog newsletter CTA
+- [x] Better CTA section - reuse the black rounded card style from blog newsletter CTA
+
+## Placeholder Content & Broken Links (42 issues)
+
+### Critical - Fake/Placeholder Content
+- [ ] Replace lorem ipsum text in contact section (`page.tsx:714`)
+- [ ] Replace fake email `contact@company.com` with real email (`page.tsx:727`)
+- [ ] Replace fake phone `(123) 456 - 789` in contact section (`page.tsx:737`)
+- [ ] Replace fake phone `(123) 456 - 789` in footer (`Footer.tsx:112`)
+- [ ] Fix contradictory addresses: San Francisco in contact section vs Bangalore in footer
+- [ ] Fix Bangalore address with SF ZIP code 94102 (`Footer.tsx:113`)
+- [ ] Fix copyright year 2025 to 2026 (`Footer.tsx:121`)
+- [ ] Fix "All right reserved" typo to "All rights reserved" (`Footer.tsx:121`)
+- [ ] Fix form placeholder "Ex; Jhon" to "Ex: John" (`page.tsx:643`)
+
+### Fake Testimonials & Team
+- [ ] Replace or remove 5 fabricated testimonials with fake names/companies (`page.tsx:200-242`)
+- [ ] Replace founder photos (randomuser.me stock avatars) with real photos (`about/page.tsx:20,25,30`)
+- [ ] Fix Hari's title from "Co-founder" to "Head of Engineering" (`about/page.tsx:29`)
+- [ ] Fix or remove 60 fake "team member" avatars implying large team (`about/page.tsx:9-13`)
+- [ ] Add Aadith's last name for consistency (`about/page.tsx:18`)
+
+### Dead Links (11 href="#" in Footer)
+- [ ] Fix X/Twitter social icon link (`Footer.tsx:45`)
+- [ ] Fix Discord social icon link (`Footer.tsx:51`)
+- [ ] Fix LinkedIn social icon link (`Footer.tsx:57`)
+- [ ] Fix "Content Inspiration" link (`Footer.tsx:73`)
+- [ ] Fix "Engagement" link (`Footer.tsx:74`)
+- [ ] Fix "Analytics" link (`Footer.tsx:75`)
+- [ ] Fix LinkedIn contact link (`Footer.tsx:109`)
+- [ ] Fix Twitter contact link (`Footer.tsx:110`)
+- [ ] Fix Instagram contact link (`Footer.tsx:111`)
+- [ ] Fix Privacy Policy link (`Footer.tsx:122`)
+- [ ] Fix Terms of Services link (`Footer.tsx:123`)
+
+### Fake/Inflated Stats
+- [ ] Fix "500K+ Videos Delivered" in StatsCounter.tsx:15 and StatsHeroBento.tsx:20
+- [ ] Fix "50+ Languages Supported" in StatsCounter.tsx:16 and StatsHeroBento.tsx:21
+- [ ] Fix "1000+ Brand Guidelines Extracted" in StatsCounter.tsx:17 and StatsHeroBento.tsx:22
+- [ ] Fix "99.9% Platform Uptime" in StatsCounter.tsx:18 and StatsHeroBento.tsx:23
+- [ ] Fix "Join thousands of marketing teams" in pricing/page.tsx and features/page.tsx
+
+### Non-Functional UI
+- [ ] Make contact form "Send Message" button functional or remove form (`page.tsx:687`)
+- [ ] Make newsletter "Subscribe" button functional or remove form (`BlogListClient.tsx:97`)
+
+### Duplicate/Placeholder Images
+- [ ] All 4 workflow stages use same ideate.png (`WorkflowShowcase.tsx:27-42`)
+
+### Source URLs to Verify (learn pages)
+- [ ] Verify TINT URL: tintup.com/blog/user-generated-content-statistics/
+- [ ] Verify Nielsen URL: nielsen.com/insights/2021/beyond-martech-building-trust/
+- [ ] Verify Influencer Marketing Hub URL: influencermarketinghub.com/ugc-creator-rates/
+- [ ] Verify Motion URL: motionapp.com/creative-trends-2024
+- [ ] Verify Meta URL: facebook.com/business/help/202195703544438
+- [ ] Verify Wyzowl URL: wyzowl.com/video-marketing-statistics/
 
 ## SEO Phase 3 - Content at Scale
 
@@ -46,22 +111,21 @@
 
 ## SEO Phase 5 - Entity Building & AEO
 
-- [ ] Create /llms.txt file for AI engine discoverability
+- [x] Create /llms.txt file for AI engine discoverability
 - [ ] Submit to Product Hunt
 - [ ] Create Reddit presence (r/videography, r/marketing, r/ugcreators)
 - [ ] List on directories (G2, Capterra, AlternativeTo)
-- [ ] Add Organization + SoftwareApplication JSON-LD to homepage (server component wrapper needed)
+- [x] Add SoftwareApplication JSON-LD to root layout
 - [ ] Add metadata exports to existing pages (home, features, about, pricing need server wrappers)
-- [ ] Create default OG image at public/images/og/default.png (1200x630)
+- [x] Add OG image (1200x630)
 - [ ] Generate dynamic OG images per blog post (Next.js ImageResponse)
 
-## Website Audit Fixes (from audit report)
+## Website Audit Fixes (from full audit report)
 
-See `owly_miscellenous_tasks/website_audit_report.md` for full list of 55 issues.
-Priority items:
-- [ ] Replace placeholder content (lorem ipsum, fake contacts, fake phone/address)
-- [ ] Replace fake founder photos on about page with real ones
-- [ ] Fix or remove fake testimonials
-- [ ] Provide distinct feature images for carousel (all use ideate.png)
-- [ ] Make contact form functional or remove it
-- [ ] Remove duplicate font @import from globals.css (already loaded via next/font)
+See `owly_miscellenous_tasks/website_audit_report.md` for the full 55-issue report covering:
+- Performance issues (rAF loops, duplicate font loading, unthrottled scroll listeners)
+- Accessibility gaps (missing ARIA labels, form label associations)
+- CSS inconsistencies (40+ font sizes, 15+ gray colors, 12 max-width values)
+- Missing SEO metadata on sub-pages
+- Unused dependencies (gsap, react-icons)
+- Native img tags instead of Next/Image
