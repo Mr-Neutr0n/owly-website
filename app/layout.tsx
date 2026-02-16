@@ -24,9 +24,25 @@ const didactGothic = Didact_Gothic({
 });
 
 export const metadata: Metadata = {
-  title: 'Owly - Innovative Solutions for Your Business',
-  description: 'Empowering businesses with innovative solutions for a better tomorrow. Discover our features, pricing, and more.',
-  keywords: ['business solutions', 'innovation', 'technology', 'productivity'],
+  metadataBase: new URL('https://owly.studio'),
+  title: {
+    default: 'Owly - One Workspace for Ad Campaigns',
+    template: '%s | Owly',
+  },
+  description: 'One workspace where marketing teams make ad campaigns together. Storyboard, script, AI video generation, review - all in one place.',
+  keywords: ['video ad creation', 'AI video ads', 'marketing team collaboration', 'video ad campaign tool'],
+  openGraph: {
+    siteName: 'Owly',
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

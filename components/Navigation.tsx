@@ -54,7 +54,7 @@ const Navigation = () => {
   const navLinksData = [
     { label: 'Features', href: '/features' },
     { label: 'About Us', href: '/about' },
-    { label: 'Blogs', href: '/blogs' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Pricing', href: '/pricing' },
   ];
 
