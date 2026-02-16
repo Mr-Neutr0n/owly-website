@@ -70,6 +70,15 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Video Types Headline */}
+      <section className="pt-32 md:pt-40 -mb-16 md:-mb-24 bg-white">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h2 className="heading-xl-fluid">
+            Create every kind of video your marketing needs.
+          </h2>
+        </div>
+      </section>
+
       {/* Teams Section with Zoom Parallax */}
       <TeamsSection />
 
@@ -87,19 +96,12 @@ export default function Home() {
       </div>
 
       <div className="page-container relative z-50 bg-white">
-      {/* Video Formats Text Section */}
-      <section className="mt-[40px] sm:mt-[60px] lg:mt-[100px] py-10 sm:py-16 lg:py-20 pb-[40px] sm:pb-[60px] lg:pb-[100px] bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col gap-[16px] sm:gap-[24px] lg:gap-[35px] items-center text-center">
-            <h2 className="heading-xl-fluid">
-              Create every kind of video your marketing needs.
-            </h2>
-            <p className="subtext-lg-fluid">
-              One workflow. Multiple video formats.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Video Formats Subheading */}
+      <div className="pt-12 md:pt-16 text-center">
+        <h2 className="heading-xl-fluid">
+          One workflow. Multiple video formats.
+        </h2>
+      </div>
 
       {/* Video Types Gallery Section */}
       <VideoTypesSection />

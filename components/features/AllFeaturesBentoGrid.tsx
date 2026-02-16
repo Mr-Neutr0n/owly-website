@@ -50,19 +50,19 @@ const FeatureCard: React.FC<FeatureItemProps & { index: number }> = ({
           inactiveZone={0.01}
         />
 
-        {/* Inner card with dark background - 4px spacing from outer */}
-        <div className="relative h-full rounded-[22px] bg-[#0f0f0f] border border-white/[0.08] p-6 md:p-8 flex flex-col">
+        {/* Inner card with white background */}
+        <div className="relative h-full rounded-[22px] bg-white border border-neutral-200 p-6 md:p-8 flex flex-col">
           {/* Icon */}
-          <div className="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/[0.08] flex items-center justify-center mb-auto">
-            <Icon className="w-5 h-5 text-white/70" />
+          <div className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center mb-auto">
+            <Icon className="w-5 h-5 text-neutral-600" />
           </div>
 
           {/* Content - positioned at bottom */}
           <div className="mt-8">
-            <h3 className="text-[18px] md:text-[22px] font-semibold tracking-[-0.5px] text-white mb-2">
+            <h3 className="text-[18px] md:text-[22px] font-semibold tracking-[-0.5px] text-[#0a0a0a] mb-2">
               {title}
             </h3>
-            <p className="text-[14px] md:text-[15px] leading-[22px] text-white/50">
+            <p className="text-[14px] md:text-[15px] leading-[22px] text-neutral-500">
               {description}
             </p>
           </div>
@@ -77,7 +77,7 @@ export const AllFeaturesBentoGrid: React.FC<AllFeaturesBentoGridProps> = ({
   className,
 }) => {
   return (
-    <section className={cn('py-24 md:py-32 bg-[#0a0a0a]', className)}>
+    <section className={cn('py-24 md:py-32 bg-white', className)}>
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8 md:px-12">
         {/* Header */}
         <motion.div
@@ -87,13 +87,13 @@ export const AllFeaturesBentoGrid: React.FC<AllFeaturesBentoGridProps> = ({
           transition={{ duration: 0.5 }}
           className="text-center mb-12 md:mb-16"
         >
-          <span className="text-[12px] md:text-[14px] uppercase tracking-wide text-white/50">
+          <span className="text-[12px] md:text-[14px] uppercase tracking-wide text-neutral-400">
             All Features
           </span>
-          <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-semibold tracking-[-2px] md:tracking-[-3px] leading-[1.1] text-white mt-3">
+          <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-semibold tracking-[-2px] md:tracking-[-3px] leading-[1.1] text-[#0a0a0a] mt-3">
             Everything you need
           </h2>
-          <p className="text-[14px] md:text-[16px] text-white/50 max-w-[500px] mx-auto mt-4">
+          <p className="text-[14px] md:text-[16px] text-neutral-500 max-w-[500px] mx-auto mt-4">
             From ideation to analytics, every tool you need to create winning ad campaigns.
           </p>
         </motion.div>

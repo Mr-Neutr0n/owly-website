@@ -23,7 +23,7 @@ export const StatsCounter: React.FC<{ className?: string }> = ({ className }) =>
   const isInView = useInView(statsRef, { once: true, margin: '-100px' });
 
   return (
-    <section className={cn('py-16 md:py-24 bg-white', className)}>
+    <section className={cn('py-8 md:py-12 bg-white', className)}>
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8 md:px-12">
         <motion.div
           ref={statsRef}
@@ -31,7 +31,6 @@ export const StatsCounter: React.FC<{ className?: string }> = ({ className }) =>
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6 }}
-          className="pt-8 md:pt-12 border-t border-black/10"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
             {stats.map((stat, index) => (

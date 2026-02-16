@@ -103,39 +103,36 @@ const allFeatures = [
 export default function FeaturesPage() {
   return (
     <div className="bg-white pt-24">
-      {/* Dark Section Wrapper - extends into footer margin to remove gap */}
-      <div className="bg-[#0a0a0a] mb-[-60px] md:mb-[-100px]">
-        {/* Section 3: All Features Bento Grid */}
-        <AllFeaturesBentoGrid features={allFeatures} />
+      {/* Features Bento Grid */}
+      <AllFeaturesBentoGrid features={allFeatures} />
 
-        {/* CTA Section */}
-        <section className="py-24 md:py-32">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-8 md:px-12 text-center">
-            <h2 className="text-[40px] sm:text-[56px] md:text-[77px] font-semibold tracking-[-2px] md:tracking-[-4.6px] leading-[1.05] text-white mb-6">
-              Ready to transform your workflow?
-            </h2>
-            <p className="text-[14px] md:text-[16px] text-white/60 max-w-[500px] mx-auto mb-10">
-              Join thousands of marketing teams creating better ads in less time.
-            </p>
-            <a
-              href="/#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0a0a0a] rounded-full font-semibold hover:bg-neutral-200 transition-colors"
+      {/* CTA Section */}
+      <section className="pt-24 md:pt-32 pb-32 md:pb-48 bg-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 md:px-12 text-center">
+          <h2 className="text-[40px] sm:text-[56px] md:text-[77px] font-semibold tracking-[-2px] md:tracking-[-4.6px] leading-[1.05] text-[#0a0a0a] mb-6">
+            Ready to transform your workflow?
+          </h2>
+          <p className="text-[14px] md:text-[16px] text-neutral-500 mx-auto mb-10 whitespace-nowrap">
+            Join thousands of marketing teams creating better ads in less time.
+          </p>
+          <a
+            href="/#contact"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full font-semibold hover:bg-neutral-800 transition-colors"
+          >
+            Get started free
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
             >
-              Get started free
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </section>
-      </div>
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </section>
     </div>
   );
 }
