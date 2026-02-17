@@ -396,9 +396,9 @@ export default function Home() {
               <p className="text-[16px] text-[#6b6b6b] max-w-[344px]">
                 Generate branded promotional content that converts viewers into customers.
               </p>
-              <button className="w-full max-w-[357px] h-[64px] bg-black text-white text-[18px] font-bold rounded-[16px] hover:bg-neutral-800 transition-colors">
+              <a href="https://app.owly.studio" className="w-full max-w-[357px] h-[64px] bg-black text-white text-[18px] font-bold rounded-[16px] hover:bg-neutral-800 transition-colors flex items-center justify-center">
                 Try it free
-              </button>
+              </a>
             </motion.div>
           </div>
 
@@ -542,9 +542,9 @@ export default function Home() {
               <p className="font-normal text-[16px] text-[#6b6b6b] w-[344px]">
                 Generate branded promotional content that converts viewers into customers.
               </p>
-              <button className="w-full h-[87px] bg-black text-white text-[24px] font-bold rounded-[20px] hover:bg-neutral-800 transition-colors flex items-center justify-center">
+              <a href="https://app.owly.studio" className="w-full h-[87px] bg-black text-white text-[24px] font-bold rounded-[20px] hover:bg-neutral-800 transition-colors flex items-center justify-center">
                 Try it free
-              </button>
+              </a>
             </motion.div>
 
             {/* Right Column - tfit Skincare */}

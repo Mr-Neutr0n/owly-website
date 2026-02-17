@@ -116,7 +116,7 @@ export default function FeaturesPage() {
             Join thousands of marketing teams creating better ads in less time.
           </p>
           <a
-            href="/#contact"
+            href="https://app.owly.studio"
             className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full font-semibold hover:bg-neutral-800 transition-colors"
           >
             Get started free

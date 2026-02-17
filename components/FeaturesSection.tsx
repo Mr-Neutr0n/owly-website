@@ -238,12 +238,12 @@ const FeaturesSection = () => {
           viewport={{ once: true }}
           className="flex flex-wrap gap-3 mt-12 md:mt-16 justify-center"
         >
-          <button className="bg-black text-white font-semibold text-base px-6 py-3 rounded-xl hover:bg-neutral-800 transition-colors duration-200">
+          <a href="https://app.owly.studio" className="bg-black text-white font-semibold text-base px-6 py-3 rounded-xl hover:bg-neutral-800 transition-colors duration-200">
             Try it free
-          </button>
-          <button className="border border-neutral-300 text-[#0a0a0a] font-semibold text-base px-6 py-3 rounded-xl hover:bg-neutral-50 transition-colors duration-200">
+          </a>
+          <a href="/#contact" className="border border-neutral-300 text-[#0a0a0a] font-semibold text-base px-6 py-3 rounded-xl hover:bg-neutral-50 transition-colors duration-200">
             Book a Demo
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

@@ -54,20 +54,20 @@ const Navigation = () => {
   const navLinksData = [
     { label: 'Features', href: '/features' },
     { label: 'About Us', href: '/about' },
-    { label: 'Blogs', href: '/blogs' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Pricing', href: '/pricing' },
   ];
 
   const loginButtonElement = (
-    <button className="px-4 py-2 sm:px-4 text-xs sm:text-sm border border-[#e0e0e0] bg-transparent text-gray-600 rounded-full hover:border-black/50 hover:text-black transition-colors duration-200 w-full sm:w-auto">
+    <a href="/#contact" className="px-4 py-2 sm:px-4 text-xs sm:text-sm border border-[#e0e0e0] bg-transparent text-gray-600 rounded-full hover:border-black/50 hover:text-black transition-colors duration-200 w-full sm:w-auto text-center">
       Book a Demo
-    </button>
+    </a>
   );
 
   const signupButtonElement = (
-    <button className="px-4 py-2 sm:px-4 text-xs sm:text-sm font-semibold text-white bg-black rounded-full hover:bg-neutral-800 transition-colors duration-200 w-full sm:w-auto">
+    <a href="https://app.owly.studio" className="px-4 py-2 sm:px-4 text-xs sm:text-sm font-semibold text-white bg-black rounded-full hover:bg-neutral-800 transition-colors duration-200 w-full sm:w-auto text-center">
       Try it free
-    </button>
+    </a>
   );
 
   return (

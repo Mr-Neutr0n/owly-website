@@ -145,12 +145,12 @@ export const WorkflowShowcase: React.FC<WorkflowShowcaseProps> = ({
 
               {/* Buttons */}
               <div className="flex gap-[12px] items-center">
-                <button className="bg-black text-[#fbfbef] font-semibold text-[17px] tracking-[-0.5px] px-[20px] py-[12px] rounded-full hover:bg-neutral-800 transition-colors duration-200">
+                <a href="https://app.owly.studio" className="bg-black text-white font-semibold text-[17px] tracking-[-0.5px] px-[20px] py-[12px] rounded-full hover:bg-neutral-800 transition-colors duration-200">
                   Try it free
-                </button>
-                <button className="border border-[#474747] text-[#1a2a3b] font-semibold text-[17px] tracking-[-0.5px] px-[20px] py-[12px] rounded-full hover:bg-neutral-50 transition-colors duration-200">
+                </a>
+                <a href="/#contact" className="border border-[#474747] text-[#1a2a3b] font-semibold text-[17px] tracking-[-0.5px] px-[20px] py-[12px] rounded-full hover:bg-neutral-50 transition-colors duration-200">
                   Book a Demo
-                </button>
+                </a>
               </div>
             </div>
 

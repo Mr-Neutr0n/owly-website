@@ -63,7 +63,7 @@ const Footer = () => {
           </div>
 
           {/* Right Section - Services and Contact */}
-          <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 lg:gap-[93px]">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-8 sm:gap-12 lg:gap-[60px]">
             {/* Services */}
             <div className="flex flex-col gap-4 md:gap-[22px]">
               <h4 className="text-white font-semibold text-[15px] uppercase tracking-wide" style={{ fontFamily: 'Sono, monospace' }}>
@@ -73,6 +73,30 @@ const Footer = () => {
                 <Link href="#" className="hover:text-white transition-colors">Content Inspiration</Link>
                 <Link href="#" className="hover:text-white transition-colors">Engagement</Link>
                 <Link href="#" className="hover:text-white transition-colors">Analytics</Link>
+              </div>
+            </div>
+
+            {/* Resources */}
+            <div className="flex flex-col gap-4 md:gap-[22px]">
+              <h4 className="text-white font-semibold text-[15px] uppercase tracking-wide" style={{ fontFamily: 'Sono, monospace' }}>
+                Resources
+              </h4>
+              <div className="flex flex-col gap-2 md:gap-[10px] text-[#dbdbdb] text-[15px]">
+                <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
+                <Link href="/learn/ugc-video-ads" className="hover:text-white transition-colors">Learn</Link>
+                <Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link>
+              </div>
+            </div>
+
+            {/* Create */}
+            <div className="flex flex-col gap-4 md:gap-[22px]">
+              <h4 className="text-white font-semibold text-[15px] uppercase tracking-wide" style={{ fontFamily: 'Sono, monospace' }}>
+                Create
+              </h4>
+              <div className="flex flex-col gap-2 md:gap-[10px] text-[#dbdbdb] text-[15px]">
+                <Link href="/make/instagram-video-ads" className="hover:text-white transition-colors">Instagram Ads</Link>
+                <Link href="/make/tiktok-video-ads" className="hover:text-white transition-colors">TikTok Ads</Link>
+                <Link href="/tools/video-ad-script-generator" className="hover:text-white transition-colors">Script Generator</Link>
               </div>
             </div>
 

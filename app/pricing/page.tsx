@@ -305,16 +305,17 @@ export default function PricingPage() {
                     ))}
                   </ul>
 
-                  <button
+                  <a
+                    href={tier.buttonLabel === 'Contact Sales' ? '/#contact' : 'https://app.owly.studio'}
                     className={cn(
-                      'w-full py-3 rounded-full font-semibold transition-all duration-200',
+                      'w-full py-3 rounded-full font-semibold transition-all duration-200 block text-center',
                       tier.popular
                         ? 'bg-white text-black hover:bg-neutral-100'
                         : 'bg-black text-white hover:bg-neutral-800'
                     )}
                   >
                     {tier.buttonLabel}
-                  </button>
+                  </a>
                 </motion.div>
               );
             })}
@@ -458,12 +459,12 @@ export default function PricingPage() {
               Join thousands of marketing teams creating better ads in less time. Start your 14-day free trial today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-black px-8 py-3.5 rounded-full font-semibold text-[15px] hover:bg-neutral-100 transition-colors">
+              <a href="https://app.owly.studio" className="bg-white text-black px-8 py-3.5 rounded-full font-semibold text-[15px] hover:bg-neutral-100 transition-colors">
                 Start Free Trial
-              </button>
-              <button className="border border-white/30 text-white px-8 py-3.5 rounded-full font-semibold text-[15px] hover:bg-white/10 transition-colors">
+              </a>
+              <a href="/#contact" className="border border-white/30 text-white px-8 py-3.5 rounded-full font-semibold text-[15px] hover:bg-white/10 transition-colors">
                 Talk to Sales
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>

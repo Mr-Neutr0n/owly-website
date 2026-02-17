@@ -1,0 +1,27 @@
+# Owly
+
+> One workspace where marketing teams make ad campaigns together.
+> Storyboard, script, AI video generation, review, all in one place.
+
+## Product
+- [Owly Studio](https://app.owly.studio): AI-powered video ad creation platform for marketing teams
+- [Website](https://owly.studio): Product marketing site
+
+## Pages
+- [Home](https://owly.studio): Main landing page with product overview
+- [Features](https://owly.studio/features): Full feature breakdown
+- [Pricing](https://owly.studio/pricing): Plans and pricing
+- [About](https://owly.studio/about): Team and company info
+- [Blog](https://owly.studio/blog): Insights on AI video creation and performance marketing
+
+## Create
+- [Instagram Video Ads](https://owly.studio/make/instagram-video-ads): Create Instagram Reels, Stories, and Feed video ads
+- [TikTok Video Ads](https://owly.studio/make/tiktok-video-ads): Create native-feeling TikTok video ads
+
+## Free Tools
+- [Video Ad Script Generator](https://owly.studio/tools/video-ad-script-generator): Generate video ad scripts from product details
+- [Video Hook Generator](https://owly.studio/tools/hook-generator): Create scroll-stopping hooks for video ads
+
+## Learn
+- [UGC Video Ads](https://owly.studio/learn/ugc-video-ads): What UGC video ads are and why they work
+- [Performance Creative](https://owly.studio/learn/performance-creative): What performance creative means and how it works
