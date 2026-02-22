@@ -34,6 +34,14 @@ export const metadata: Metadata = {
   description: 'One workspace where marketing teams make ad campaigns together. Storyboard, script, AI video generation, review, all in one place.',
   keywords: ['video ad creation', 'AI video ads', 'marketing team collaboration', 'video ad campaign tool'],
   authors: [{ name: 'Owly' }],
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/google-favicon-48.png', type: 'image/png', sizes: '48x48' },
+      { url: '/google-favicon-96.png', type: 'image/png', sizes: '96x96' },
+    ],
+    shortcut: [{ url: '/favicon.ico' }],
+  },
   alternates: {
     canonical: '/',
   },
