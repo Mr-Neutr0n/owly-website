@@ -20,13 +20,13 @@ import { ZoomParallax } from './ui/ZoomParallax';
 const TeamsSection = () => {
   // Parallax images - popsicle girl (index 0) is the hero that zooms to fill screen
   const parallaxImages = [
-    { src: '/images/shine/01-woman-popsicle.png', alt: 'Kodeus x Owly', videoSrc: '/videos/kodeus-owly.mp4', videoPoster: '/videos/kodeus-owly-poster.jpg' },
-    { src: '/images/shine/02-billie-pink-product.png', alt: 'Billie product' },
-    { src: '/images/shine/03-coca-cola-cans.png', alt: 'Coca-Cola cans' },
-    { src: '/images/shine/04-phone-cases.png', alt: 'Phone cases' },
-    { src: '/images/shine/05-tfit-skincare-beach.png', alt: 'Skincare product' },
-    { src: '/images/shine/07-nike-golf-ball.png', alt: 'Nike golf ball' },
-    { src: '/images/shine/08-mcdonalds-happy-meal.png', alt: 'McDonalds Happy Meal' },
+    { src: '/images/shine/01-woman-popsicle.png', alt: 'Theater', videoSrc: '/videos/theater.mp4', videoPoster: '/videos/theater-poster.jpg' },
+    { src: '/images/shine/02-billie-pink-product.png', alt: 'MYOP', videoSrc: '/videos/myop.mp4', videoPoster: '/videos/myop-poster.jpg' },
+    { src: '/images/shine/03-coca-cola-cans.png', alt: 'Bluornd', videoSrc: '/videos/bluornd.mp4', videoPoster: '/videos/bluornd-poster.jpg' },
+    { src: '/images/shine/04-phone-cases.png', alt: 'Quenzy', videoSrc: '/videos/quenzy.mp4', videoPoster: '/videos/quenzy-poster.jpg' },
+    { src: '/images/shine/05-tfit-skincare-beach.png', alt: 'Tony', videoSrc: '/videos/tony.mp4', videoPoster: '/videos/tony-poster.jpg' },
+    { src: '/images/shine/07-nike-golf-ball.png', alt: 'Saree', videoSrc: '/videos/saree.mp4', videoPoster: '/videos/saree-poster.jpg' },
+    { src: '/images/shine/08-mcdonalds-happy-meal.png', alt: 'Slurrp', videoSrc: '/videos/slurrp.mp4', videoPoster: '/videos/slurrp-poster.jpg' },
   ];
 
   return (

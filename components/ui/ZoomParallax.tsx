@@ -85,7 +85,7 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
                                         loop
                                         muted
                                         playsInline
-                                        className="h-full w-full object-cover"
+                                        className="h-full w-full object-cover scale-110"
                                     />
                                 ) : (
                                     <Image

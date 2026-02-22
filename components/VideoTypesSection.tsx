@@ -11,13 +11,14 @@ const categoryConfig = {
     description: 'Cinematic brand stories that capture your identity and connect emotionally with your audience.',
     aspectRatio: 'landscape', // 16:9 style
     videos: [
-      { id: 1, title: 'Brand Story', thumbnail: '/images/shine/03-coca-cola-cans.png', videoSrc: '' },
-      { id: 2, title: 'Company Vision', thumbnail: '/images/shine/07-nike-golf-ball.png', videoSrc: '' },
-      { id: 3, title: 'Heritage Film', thumbnail: '/images/shine/05-tfit-skincare-beach.png', videoSrc: '' },
-      { id: 4, title: 'Culture Spotlight', thumbnail: '/images/gallery/kayak-carousel.png', videoSrc: '' },
-      { id: 5, title: 'Mission Statement', thumbnail: '/images/shine/08-mcdonalds-happy-meal.png', videoSrc: '' },
-      { id: 6, title: 'Brand Anthem', thumbnail: '/images/shine/03-coca-cola-cans.png', videoSrc: '' },
-      { id: 7, title: 'Values Video', thumbnail: '/images/shine/07-nike-golf-ball.png', videoSrc: '' },
+      { id: 1, title: 'Kodeus', thumbnail: '/videos/kodeus-owly-poster.jpg', videoSrc: '/videos/kodeus-owly.mp4' },
+      { id: 2, title: 'Brand Story', thumbnail: '/images/shine/03-coca-cola-cans.png', videoSrc: '' },
+      { id: 3, title: 'Company Vision', thumbnail: '/images/shine/07-nike-golf-ball.png', videoSrc: '' },
+      { id: 4, title: 'Heritage Film', thumbnail: '/images/shine/05-tfit-skincare-beach.png', videoSrc: '' },
+      { id: 5, title: 'Culture Spotlight', thumbnail: '/images/gallery/kayak-carousel.png', videoSrc: '' },
+      { id: 6, title: 'Mission Statement', thumbnail: '/images/shine/08-mcdonalds-happy-meal.png', videoSrc: '' },
+      { id: 7, title: 'Brand Anthem', thumbnail: '/images/shine/03-coca-cola-cans.png', videoSrc: '' },
+      { id: 8, title: 'Values Video', thumbnail: '/images/shine/07-nike-golf-ball.png', videoSrc: '' },
     ],
   },
   'UGC': {
@@ -100,7 +101,7 @@ const VideoTypesSection = () => {
     const video = videoRefs.current[index];
     if (video && currentCategory.videos[index]?.videoSrc) {
       video.currentTime = 0;
-      video.play().catch(() => {});
+      video.play().catch(() => { });
     }
   };
 
@@ -152,11 +153,10 @@ const VideoTypesSection = () => {
                       setCurrentSlide(0); // Reset carousel on tab change
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className={`h-[40px] sm:h-[43px] px-[16px] sm:px-[20px] rounded-full transition-all duration-300 ${
-                      activeTab === tab.id
+                    className={`h-[40px] sm:h-[43px] px-[16px] sm:px-[20px] rounded-full transition-all duration-300 ${activeTab === tab.id
                         ? 'bg-black text-white'
                         : 'bg-neutral-100 text-[#0a0a0a] hover:bg-neutral-200'
-                    }`}
+                      }`}
                   >
                     <span className="text-[14px] sm:text-[16px] font-medium tracking-[-0.3px] whitespace-nowrap">
                       {tab.label}
@@ -222,9 +222,8 @@ const VideoTypesSection = () => {
                   <button
                     key={idx}
                     onClick={() => setCurrentSlide(idx)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      currentSlide === idx ? 'bg-black w-6' : 'bg-neutral-300'
-                    }`}
+                    className={`w-2 h-2 rounded-full transition-all ${currentSlide === idx ? 'bg-black w-6' : 'bg-neutral-300'
+                      }`}
                   />
                 ))}
                 {currentCategory.videos.length > 5 && (
@@ -275,9 +274,8 @@ const VideoTypesSection = () => {
                     {video.videoSrc && (
                       <video
                         ref={(el) => { videoRefs.current[idx] = el; }}
-                        className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-300 ${
-                          hoveredIndex === idx ? 'opacity-100' : 'opacity-0'
-                        }`}
+                        className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-300 ${hoveredIndex === idx ? 'opacity-100' : 'opacity-0'
+                          }`}
                         src={video.videoSrc}
                         muted={isMuted}
                         loop
