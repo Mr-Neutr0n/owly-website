@@ -20,7 +20,7 @@ import { ZoomParallax } from './ui/ZoomParallax';
 const TeamsSection = () => {
   // Parallax images - popsicle girl (index 0) is the hero that zooms to fill screen
   const parallaxImages = [
-    { src: '/images/shine/01-woman-popsicle.png', alt: 'Woman with popsicle' },
+    { src: '/images/shine/01-woman-popsicle.png', alt: 'Kodeus x Owly', videoSrc: '/videos/kodeus-owly.mp4', videoPoster: '/videos/kodeus-owly-poster.jpg' },
     { src: '/images/shine/02-billie-pink-product.png', alt: 'Billie product' },
     { src: '/images/shine/03-coca-cola-cans.png', alt: 'Coca-Cola cans' },
     { src: '/images/shine/04-phone-cases.png', alt: 'Phone cases' },
