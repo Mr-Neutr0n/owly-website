@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: ['/api/'],
       },
       // Explicitly allow AI crawlers for GEO (Generative Engine Optimization)
       {
@@ -34,7 +34,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://owly.studio/sitemap.xml',
-    host: 'https://owly.studio',
+    sitemap: 'https://www.owly.studio/sitemap.xml',
+    host: 'https://www.owly.studio',
   };
 }

@@ -4,7 +4,7 @@ import { makePages } from '@/content/make/_data';
 import { learnPages } from '@/content/learn/_data';
 import { toolPages } from '@/content/tools/_data';
 
-const SITE_URL = 'https://owly.studio';
+const SITE_URL = 'https://www.owly.studio';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
@@ -15,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/pricing`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE_URL}/privacy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${SITE_URL}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
   ];
 
   const blogEntries: MetadataRoute.Sitemap = getAllBlogPosts().map(post => ({

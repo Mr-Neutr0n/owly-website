@@ -60,9 +60,9 @@ export default function Home() {
                 <h1 className="text-[32px] sm:text-[50px] md:text-[70px] lg:text-[109px]">
                   <span className="whitespace-nowrap">Re-invent your Ad</span>
                 </h1>
-                <h1 className="text-[32px] sm:text-[50px] md:text-[70px] lg:text-[109px]">
+                <h2 className="text-[32px] sm:text-[50px] md:text-[70px] lg:text-[109px]">
                   workflow
-                </h1>
+                </h2>
               </div>
 
               {/* Description */}
@@ -624,9 +624,10 @@ export default function Home() {
             >
               {/* Background Image */}
               <div className="absolute inset-0 overflow-hidden">
-                <img
+                <Image
                   src="/images/contact/contact-background.png"
                   alt="Contact background"
+                  fill
                   className="w-full h-full object-cover scale-125 sm:scale-150"
                 />
               </div>
@@ -644,7 +645,7 @@ export default function Home() {
                       <label className="text-[12px] font-medium text-black">Name</label>
                       <input
                         type="text"
-                        placeholder="Ex; Jhon"
+                        placeholder="Ex: John"
                         className="h-[44px] bg-[#f7f7f7] border border-[#e5e5e5] rounded-[10px] px-4 sm:px-5 text-[13px] text-black placeholder:text-[#999] focus:outline-none focus:border-black transition-colors"
                       />
                     </div>
@@ -652,7 +653,7 @@ export default function Home() {
                       <label className="text-[12px] font-medium text-black">Email</label>
                       <input
                         type="email"
-                        placeholder="abc@gmail.com"
+                        placeholder="you@company.com"
                         className="h-[44px] bg-[#f7f7f7] border border-[#e5e5e5] rounded-[10px] px-4 sm:px-5 text-[13px] text-black placeholder:text-[#999] focus:outline-none focus:border-black transition-colors"
                       />
                     </div>
@@ -664,7 +665,7 @@ export default function Home() {
                       <label className="text-[12px] font-medium text-black">Phone</label>
                       <input
                         type="tel"
-                        placeholder="(123) 456 - 789"
+                        placeholder="+91 9188589920"
                         className="h-[44px] bg-[#f7f7f7] border border-[#e5e5e5] rounded-[10px] px-4 sm:px-5 text-[13px] text-black placeholder:text-[#999] focus:outline-none focus:border-black transition-colors"
                       />
                     </div>
@@ -715,7 +716,7 @@ export default function Home() {
                   Get in touch today
                 </h2>
                 <p className="text-[14px] text-[#6b6b6b] leading-normal max-w-[400px]">
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit nulla adipiscing tincidunt interdum tellus du.
+                  Tell us what you want to build and we will get back with a tailored plan for your ad workflow.
                 </p>
               </div>
 
@@ -728,7 +729,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <span className="text-[14px] text-[#616161]">contact@company.com</span>
+                  <span className="text-[14px] text-[#616161]">hari@owly.studio</span>
                 </div>
 
                 {/* Phone */}
@@ -738,7 +739,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
-                  <span className="text-[14px] text-[#616161]">(123) 456 - 789</span>
+                  <span className="text-[14px] text-[#616161]">+91 9188589920</span>
                 </div>
 
                 {/* Location */}
@@ -749,7 +750,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <span className="text-[14px] text-[#616161]">794 Mcallister St San Francisco, 94102</span>
+                  <span className="text-[14px] text-[#616161]">Bengaluru, India</span>
                 </div>
               </div>
             </motion.div>

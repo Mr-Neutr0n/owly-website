@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, Didact_Gothic } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { organizationSchema, softwareApplicationSchema, websiteSchema } from '@/lib/schema';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,7 +26,7 @@ const didactGothic = Didact_Gothic({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://owly.studio'),
+  metadataBase: new URL('https://www.owly.studio'),
   title: {
     default: 'Owly | One Workspace for Ad Campaigns',
     template: '%s | Owly',
@@ -32,15 +34,28 @@ export const metadata: Metadata = {
   description: 'One workspace where marketing teams make ad campaigns together. Storyboard, script, AI video generation, review, all in one place.',
   keywords: ['video ad creation', 'AI video ads', 'marketing team collaboration', 'video ad campaign tool'],
   authors: [{ name: 'Owly' }],
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+    ],
+    shortcut: [{ url: '/favicon.ico' }],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Owly | One Workspace for Ad Campaigns',
     description: 'Storyboard, script, AI video generation, review. All in one place for marketing teams.',
+    url: 'https://www.owly.studio/',
     siteName: 'Owly',
     type: 'website',
     locale: 'en_US',
     images: [
       {
-        url: 'https://owly.studio/og.jpg',
+        url: 'https://www.owly.studio/og.jpg',
         width: 1200,
         height: 630,
         alt: 'Owly | One Workspace for Ad Campaigns',
@@ -51,7 +66,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Owly | One Workspace for Ad Campaigns',
     description: 'Storyboard, script, AI video generation, review. All in one place.',
-    images: ['https://owly.studio/og.jpg'],
+    images: ['https://www.owly.studio/og.jpg'],
   },
   robots: {
     index: true,
@@ -67,23 +82,21 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${didactGothic.variable}`}>
       <body className="min-h-screen flex flex-col font-sans">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DC9CB1PFQ7" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DC9CB1PFQ7');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'SoftwareApplication',
-              name: 'Owly',
-              url: 'https://owly.studio',
-              description: 'One workspace where marketing teams make ad campaigns together. Storyboard, script, AI video generation, review, all in one place.',
-              applicationCategory: 'BusinessApplication',
-              operatingSystem: 'Web',
-              offers: {
-                '@type': 'Offer',
-                price: '0',
-                priceCurrency: 'USD',
-                description: 'Free trial available',
-              },
+              '@graph': [organizationSchema(), websiteSchema(), softwareApplicationSchema()],
             }),
           }}
         />

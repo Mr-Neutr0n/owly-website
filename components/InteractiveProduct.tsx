@@ -70,9 +70,11 @@ const InteractiveProduct = () => {
           <div className="md:hidden flex items-center justify-between bg-[#040404] border border-[rgba(64,64,64,0.15)] rounded-[12px] px-4 py-3 flex-shrink-0">
             {/* Logo */}
             <div className="h-[28px] w-[70px] relative">
-              <img
+              <Image
                 src="/images/interactive-product/owly-logo-full.png"
                 alt="Owly"
+                width={90}
+                height={28}
                 className="absolute h-full max-w-none"
                 style={{ width: '90px', left: '-10px', top: '0' }}
               />
@@ -183,9 +185,11 @@ const InteractiveProduct = () => {
                     transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                   >
                     {/* Logo positioned to show owl icon, revealing text on expand */}
-                    <img
+                    <Image
                       src="/images/interactive-product/owly-logo-full.png"
                       alt="Owly"
+                      width={105}
+                      height={35}
                       className="absolute h-full max-w-none"
                       style={{
                         width: '105px',
@@ -423,9 +427,11 @@ const InteractiveProduct = () => {
                       <div className="flex items-center gap-2">
                         {/* Plus Icon */}
                         <button className="w-6 h-6 flex items-center justify-center hover:opacity-80 transition-opacity">
-                          <img
+                          <Image
                             src="/images/input-bar/plus-icon.svg"
                             alt="Add"
+                            width={24}
+                            height={24}
                             className="w-6 h-6"
                             style={{ filter: 'brightness(0.85)' }}
                           />
@@ -434,9 +440,11 @@ const InteractiveProduct = () => {
                         {/* Create Tag */}
                         <div className="bg-[#111] rounded-lg px-2 py-1.5 flex items-center gap-2 h-[30px]">
                           <div className="w-6 h-6 flex items-center justify-center">
-                            <img
+                            <Image
                               src="/images/input-bar/create-icon.svg"
                               alt="Create"
+                              width={16}
+                              height={16}
                               className="w-4 h-4"
                             />
                           </div>
@@ -451,9 +459,11 @@ const InteractiveProduct = () => {
                               onClick={() => setShowDurationDropdown(!showDurationDropdown)}
                               className="flex items-center gap-2 px-2 py-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
                             >
-                              <img
+                              <Image
                                 src="/images/input-bar/time-icon.svg"
                                 alt="Duration"
+                                width={15}
+                                height={15}
                                 className="w-[15px] h-[15px]"
                               />
                               <span className="text-[#9a9a9a] text-[14px]">{selectedDuration}</span>
@@ -498,9 +508,11 @@ const InteractiveProduct = () => {
                               onClick={() => setShowRatioDropdown(!showRatioDropdown)}
                               className="flex items-center gap-2 px-2 py-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
                             >
-                              <img
+                              <Image
                                 src="/images/input-bar/aspect-ratio-icon.svg"
                                 alt="Aspect Ratio"
+                                width={16}
+                                height={16}
                                 className="w-4 h-4"
                               />
                               <span className="text-[#9a9a9a] text-[14px]">{selectedRatio}</span>
@@ -548,9 +560,11 @@ const InteractiveProduct = () => {
                               onClick={() => setShowStyleDropdown(!showStyleDropdown)}
                               className="flex items-center gap-2 px-2 py-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
                             >
-                              <img
+                              <Image
                                 src="/images/input-bar/cinematic-icon.svg"
                                 alt="Style"
+                                width={17}
+                                height={17}
                                 className="w-[17px] h-[17px]"
                               />
                               <span className="text-[#9a9a9a] text-[14px]">{selectedStyle}</span>
