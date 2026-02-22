@@ -23,7 +23,7 @@ export default function PrivacyPage() {
           We do not sell personal data. We use trusted service providers for hosting, analytics, and communications.
         </p>
         <p className="text-[16px] leading-[28px] text-[#3a3a3a] mb-4">
-          To request access, correction, or deletion of your data, contact us at support@owly.studio.
+          To request access, correction, or deletion of your data, contact us at hari@owly.studio.
         </p>
       </div>
     </div>

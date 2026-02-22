@@ -23,7 +23,7 @@ export default function TermsPage() {
           We may update this website and these terms over time. Continued use after updates means you accept the latest version.
         </p>
         <p className="text-[16px] leading-[28px] text-[#3a3a3a] mb-4">
-          For commercial or legal questions, contact support@owly.studio.
+          For commercial or legal questions, contact hari@owly.studio.
         </p>
       </div>
     </div>
