@@ -4,7 +4,7 @@ import { makePages } from '@/content/make/_data';
 import { learnPages } from '@/content/learn/_data';
 import { toolPages } from '@/content/tools/_data';
 
-const SITE_URL = 'https://owly.studio';
+const SITE_URL = 'https://www.owly.studio';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();

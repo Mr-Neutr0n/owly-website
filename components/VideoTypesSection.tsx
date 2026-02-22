@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 // Category configuration with aspect ratios and content
 // Using existing images as placeholders - replace with actual video thumbnails
@@ -193,10 +194,12 @@ const VideoTypesSection = () => {
                 transition={{ duration: 0.3 }}
                 className="relative w-full aspect-[9/16] max-h-[70vh] rounded-[20px] overflow-hidden"
               >
-                <img
+                <Image
                   className="h-full w-full object-cover object-center"
                   src={currentCategory.videos[currentSlide]?.thumbnail}
                   alt={currentCategory.videos[currentSlide]?.title}
+                  fill
+                  sizes="100vw"
                 />
               </motion.div>
             </AnimatePresence>
@@ -260,10 +263,12 @@ const VideoTypesSection = () => {
                     onMouseLeave={() => handleMouseLeave(idx)}
                   >
                     {/* Thumbnail Image */}
-                    <img
+                    <Image
                       className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                       src={video.thumbnail}
                       alt={video.title}
+                      fill
+                      sizes="(max-width: 768px) 0px, 20vw"
                     />
 
                     {/* Video Preview (plays on hover if videoSrc exists) */}

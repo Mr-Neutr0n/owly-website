@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { X } from 'lucide-react';
+import Image from 'next/image';
 
 // ==========================================
 // TYPES & INTERFACES
@@ -468,9 +469,11 @@ const SphereImageGrid: React.FC<SphereImageGridProps> = ({
         onMouseLeave={() => setHoveredIndex(null)}
       >
         <div className="relative w-full h-full rounded-full overflow-hidden shadow-lg border-2 border-white/20">
-          <img
+          <Image
             src={image.src}
             alt={image.alt}
+            fill
+            sizes="(max-width: 768px) 30vw, 15vw"
             className="w-full h-full object-cover"
             draggable={false}
             loading={index < 3 ? 'eager' : 'lazy'}
@@ -499,9 +502,11 @@ const SphereImageGrid: React.FC<SphereImageGridProps> = ({
           }}
         >
           <div className="relative aspect-square">
-            <img
+            <Image
               src={selectedImage.src}
               alt={selectedImage.alt}
+              fill
+              sizes="(max-width: 768px) 90vw, 448px"
               className="w-full h-full object-cover"
             />
             <button

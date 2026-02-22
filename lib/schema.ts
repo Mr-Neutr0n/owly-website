@@ -1,6 +1,12 @@
-const SITE_URL = 'https://owly.studio';
+const SITE_URL = 'https://www.owly.studio';
 
 export function organizationSchema() {
+  const socialProfiles = [
+    'https://www.linkedin.com/company/owlystudios/',
+    'https://x.com/OwlyStudioai',
+    'https://www.instagram.com/owly.studios/',
+  ];
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -8,6 +14,17 @@ export function organizationSchema() {
     url: SITE_URL,
     logo: `${SITE_URL}/images/logo/owly-logo.svg`,
     description: 'One workspace where marketing teams make ad campaigns together.',
+    email: 'hari@owly.studio',
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        email: 'hari@owly.studio',
+        telephone: '+91 9188589920',
+        availableLanguage: ['en'],
+      },
+    ],
+    sameAs: socialProfiles,
   };
 }
 
