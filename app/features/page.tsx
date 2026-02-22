@@ -103,6 +103,7 @@ const allFeatures = [
 export default function FeaturesPage() {
   return (
     <div className="bg-white pt-24">
+      <h1 className="sr-only">Owly Features</h1>
       {/* Features Bento Grid */}
       <AllFeaturesBentoGrid features={allFeatures} />
 

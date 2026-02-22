@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 const SITE_URL = 'https://owly.studio';
 const SITE_NAME = 'Owly';
-const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og/default.png`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og.jpg`;
 
 export function createMetadata({
   title,

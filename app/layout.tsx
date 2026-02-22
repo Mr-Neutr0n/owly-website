@@ -4,6 +4,7 @@ import Script from 'next/script';
 import './globals.css';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { organizationSchema, softwareApplicationSchema, websiteSchema } from '@/lib/schema';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -33,9 +34,13 @@ export const metadata: Metadata = {
   description: 'One workspace where marketing teams make ad campaigns together. Storyboard, script, AI video generation, review, all in one place.',
   keywords: ['video ad creation', 'AI video ads', 'marketing team collaboration', 'video ad campaign tool'],
   authors: [{ name: 'Owly' }],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Owly | One Workspace for Ad Campaigns',
     description: 'Storyboard, script, AI video generation, review. All in one place for marketing teams.',
+    url: 'https://owly.studio/',
     siteName: 'Owly',
     type: 'website',
     locale: 'en_US',
@@ -82,18 +87,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'SoftwareApplication',
-              name: 'Owly',
-              url: 'https://owly.studio',
-              description: 'One workspace where marketing teams make ad campaigns together. Storyboard, script, AI video generation, review, all in one place.',
-              applicationCategory: 'BusinessApplication',
-              operatingSystem: 'Web',
-              offers: {
-                '@type': 'Offer',
-                price: '0',
-                priceCurrency: 'USD',
-                description: 'Free trial available',
-              },
+              '@graph': [organizationSchema(), websiteSchema(), softwareApplicationSchema()],
             }),
           }}
         />

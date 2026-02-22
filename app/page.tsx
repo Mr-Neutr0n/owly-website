@@ -36,9 +36,11 @@ export default function Home() {
         {/* Inner container - creates the rounded inset card with spacing on all sides */}
         <div className="relative w-full h-full rounded-[14px] overflow-hidden">
           {/* Background Image */}
-          <img
+          <Image
             src="/images/hero/hero-background.png"
             alt="Hero background"
+            fill
+            priority
             className="absolute inset-0 w-full h-full object-cover scale-125 pointer-events-none"
           />
 
@@ -56,9 +58,9 @@ export default function Home() {
                 <h1 className="text-[32px] sm:text-[50px] md:text-[70px] lg:text-[109px]">
                   <span className="whitespace-nowrap">Re-invent your Ad</span>
                 </h1>
-                <h1 className="text-[32px] sm:text-[50px] md:text-[70px] lg:text-[109px]">
+                <h2 className="text-[32px] sm:text-[50px] md:text-[70px] lg:text-[109px]">
                   workflow
-                </h1>
+                </h2>
               </div>
 
               {/* Description */}
@@ -620,9 +622,10 @@ export default function Home() {
             >
               {/* Background Image */}
               <div className="absolute inset-0 overflow-hidden">
-                <img
+                <Image
                   src="/images/contact/contact-background.png"
                   alt="Contact background"
+                  fill
                   className="w-full h-full object-cover scale-125 sm:scale-150"
                 />
               </div>

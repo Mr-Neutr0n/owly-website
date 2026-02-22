@@ -11,6 +11,16 @@ export function organizationSchema() {
   };
 }
 
+export function websiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Owly',
+    url: SITE_URL,
+    inLanguage: 'en-US',
+  };
+}
+
 export function blogPostSchema(post: {
   title: string;
   excerpt: string;
