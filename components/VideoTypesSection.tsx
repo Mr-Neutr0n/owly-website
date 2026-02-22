@@ -12,13 +12,7 @@ const categoryConfig = {
     aspectRatio: 'landscape', // 16:9 style
     videos: [
       { id: 1, title: 'Kodeus', thumbnail: '/videos/kodeus-owly-poster.jpg', videoSrc: '/videos/kodeus-owly.mp4' },
-      { id: 2, title: 'Brand Story', thumbnail: '/images/shine/03-coca-cola-cans.png', videoSrc: '' },
-      { id: 3, title: 'Company Vision', thumbnail: '/images/shine/07-nike-golf-ball.png', videoSrc: '' },
-      { id: 4, title: 'Heritage Film', thumbnail: '/images/shine/05-tfit-skincare-beach.png', videoSrc: '' },
-      { id: 5, title: 'Culture Spotlight', thumbnail: '/images/gallery/kayak-carousel.png', videoSrc: '' },
-      { id: 6, title: 'Mission Statement', thumbnail: '/images/shine/08-mcdonalds-happy-meal.png', videoSrc: '' },
-      { id: 7, title: 'Brand Anthem', thumbnail: '/images/shine/03-coca-cola-cans.png', videoSrc: '' },
-      { id: 8, title: 'Values Video', thumbnail: '/images/shine/07-nike-golf-ball.png', videoSrc: '' },
+      { id: 2, title: 'Sushi', thumbnail: '/videos/sushi-poster.jpg', videoSrc: '/videos/sushi.mp4' },
     ],
   },
   'UGC': {
@@ -26,14 +20,12 @@ const categoryConfig = {
     description: 'Creator-style videos built to feel native, authentic, and high-converting.',
     aspectRatio: 'vertical', // 9:16 style
     videos: [
-      { id: 1, title: 'Creator Review', thumbnail: '/images/gallery/ugc-01-thumb.jpg', videoSrc: '/videos/gallery/ugc-01.mp4' },
-      { id: 2, title: 'Unboxing', thumbnail: '/images/gallery/ugc-02-thumb.jpg', videoSrc: '/videos/gallery/ugc-02.mp4' },
-      { id: 3, title: 'Day in Life', thumbnail: '/images/gallery/ugc-03-thumb.jpg', videoSrc: '/videos/gallery/ugc-03.mp4' },
-      { id: 4, title: 'Tutorial', thumbnail: '/images/gallery/ugc-04-thumb.jpg', videoSrc: '/videos/gallery/ugc-04.mp4' },
-      { id: 5, title: 'Testimonial', thumbnail: '/images/shine/01-woman-popsicle.png', videoSrc: '' },
-      { id: 6, title: 'Get Ready', thumbnail: '/images/shine/02-billie-pink-product.png', videoSrc: '' },
-      { id: 7, title: 'Haul Video', thumbnail: '/images/gallery/kayak-carousel.png', videoSrc: '' },
-      { id: 8, title: 'Routine', thumbnail: '/images/shine/04-phone-cases.png', videoSrc: '' },
+      { id: 1, title: 'UGC Bluornd', thumbnail: '/videos/ugc-bluornd-poster.jpg', videoSrc: '/videos/ugc-bluornd.mp4' },
+      { id: 2, title: 'Creator Review', thumbnail: '/images/gallery/ugc-01-thumb.jpg', videoSrc: '/videos/gallery/ugc-01.mp4' },
+      { id: 3, title: 'Unboxing', thumbnail: '/images/gallery/ugc-02-thumb.jpg', videoSrc: '/videos/gallery/ugc-02.mp4' },
+      { id: 4, title: 'Day in Life', thumbnail: '/images/gallery/ugc-03-thumb.jpg', videoSrc: '/videos/gallery/ugc-03.mp4' },
+      { id: 5, title: 'Tutorial', thumbnail: '/images/gallery/ugc-04-thumb.jpg', videoSrc: '/videos/gallery/ugc-04.mp4' },
+      { id: 6, title: 'Slurrp UGC', thumbnail: '/videos/slurrp-ugc-poster.jpg', videoSrc: '/videos/slurrp-ugc.mp4' },
     ],
   },
   'product-videos': {
@@ -41,13 +33,12 @@ const categoryConfig = {
     description: 'Showcase your products with stunning visuals that highlight features and drive purchase intent.',
     aspectRatio: 'landscape', // 16:9 style
     videos: [
-      { id: 1, title: 'Product Demo', thumbnail: '/images/gallery/kayak-carousel.png', videoSrc: '' },
-      { id: 2, title: 'Feature Highlight', thumbnail: '/images/shine/02-billie-pink-product.png', videoSrc: '' },
-      { id: 3, title: '360 View', thumbnail: '/images/shine/04-phone-cases.png', videoSrc: '' },
-      { id: 4, title: 'Comparison', thumbnail: '/images/shine/05-tfit-skincare-beach.png', videoSrc: '' },
-      { id: 5, title: 'How It Works', thumbnail: '/images/gallery/kayak-carousel.png', videoSrc: '' },
-      { id: 6, title: 'Lifestyle Shot', thumbnail: '/images/shine/03-coca-cola-cans.png', videoSrc: '' },
-      { id: 7, title: 'Close-up Detail', thumbnail: '/images/shine/07-nike-golf-ball.png', videoSrc: '' },
+      { id: 1, title: 'Theater', thumbnail: '/videos/theater-poster.jpg', videoSrc: '/videos/theater.mp4' },
+      { id: 2, title: 'MYOP', thumbnail: '/videos/myop-poster.jpg', videoSrc: '/videos/myop.mp4' },
+      { id: 3, title: 'Quenzy', thumbnail: '/videos/quenzy-poster.jpg', videoSrc: '/videos/quenzy.mp4' },
+      { id: 4, title: 'Tony', thumbnail: '/videos/tony-poster.jpg', videoSrc: '/videos/tony.mp4' },
+      { id: 5, title: 'Saree', thumbnail: '/videos/saree-poster.jpg', videoSrc: '/videos/saree.mp4' },
+      { id: 6, title: 'Slurrp', thumbnail: '/videos/slurrp-poster.jpg', videoSrc: '/videos/slurrp.mp4' },
     ],
   },
   'short-ads': {
@@ -55,14 +46,10 @@ const categoryConfig = {
     description: 'Scroll-stopping short-form ads optimized for social feeds and maximum engagement.',
     aspectRatio: 'vertical', // 9:16 style
     videos: [
-      { id: 1, title: 'Hook Ad', thumbnail: '/images/shine/01-woman-popsicle.png', videoSrc: '' },
-      { id: 2, title: 'Problem-Solution', thumbnail: '/images/shine/03-coca-cola-cans.png', videoSrc: '' },
-      { id: 3, title: 'Before-After', thumbnail: '/images/shine/02-billie-pink-product.png', videoSrc: '' },
-      { id: 4, title: 'Quick Demo', thumbnail: '/images/shine/07-nike-golf-ball.png', videoSrc: '' },
-      { id: 5, title: 'Social Proof', thumbnail: '/images/shine/04-phone-cases.png', videoSrc: '' },
-      { id: 6, title: 'Flash Sale', thumbnail: '/images/shine/08-mcdonalds-happy-meal.png', videoSrc: '' },
-      { id: 7, title: 'Trending Sound', thumbnail: '/images/gallery/kayak-carousel.png', videoSrc: '' },
-      { id: 8, title: 'Challenge Ad', thumbnail: '/images/shine/05-tfit-skincare-beach.png', videoSrc: '' },
+      { id: 1, title: 'Ibadi', thumbnail: '/videos/ibadi-poster.jpg', videoSrc: '/videos/ibadi.mp4' },
+      { id: 2, title: 'Bluornd', thumbnail: '/videos/bluornd-poster.jpg', videoSrc: '/videos/bluornd.mp4' },
+      { id: 3, title: 'Slurrp', thumbnail: '/videos/slurrp-s-poster.jpg', videoSrc: '/videos/slurrp-s.mp4' },
+      { id: 4, title: 'MYOP', thumbnail: '/videos/myop-s-poster.jpg', videoSrc: '/videos/myop-s.mp4' },
     ],
   },
 };
@@ -77,8 +64,8 @@ const VideoTypesSection = () => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const tabs: { id: CategoryKey; label: string }[] = [
-    { id: 'brand-film', label: 'Brand film' },
     { id: 'UGC', label: 'UGC' },
+    { id: 'brand-film', label: 'Brand film' },
     { id: 'product-videos', label: 'Product videos' },
     { id: 'short-ads', label: 'Short Ads' },
   ];
@@ -154,8 +141,8 @@ const VideoTypesSection = () => {
                     }}
                     whileTap={{ scale: 0.98 }}
                     className={`h-[40px] sm:h-[43px] px-[16px] sm:px-[20px] rounded-full transition-all duration-300 ${activeTab === tab.id
-                        ? 'bg-black text-white'
-                        : 'bg-neutral-100 text-[#0a0a0a] hover:bg-neutral-200'
+                      ? 'bg-black text-white'
+                      : 'bg-neutral-100 text-[#0a0a0a] hover:bg-neutral-200'
                       }`}
                   >
                     <span className="text-[14px] sm:text-[16px] font-medium tracking-[-0.3px] whitespace-nowrap">
@@ -263,7 +250,7 @@ const VideoTypesSection = () => {
                   >
                     {/* Thumbnail Image */}
                     <Image
-                      className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full object-cover object-center scale-110 transition-transform duration-500 group-hover:scale-[1.15]"
                       src={video.thumbnail}
                       alt={video.title}
                       fill
@@ -274,10 +261,10 @@ const VideoTypesSection = () => {
                     {video.videoSrc && (
                       <video
                         ref={(el) => { videoRefs.current[idx] = el; }}
-                        className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-300 ${hoveredIndex === idx ? 'opacity-100' : 'opacity-0'
+                        className={`absolute inset-0 h-full w-full object-cover object-center scale-110 transition-opacity duration-300 ${hoveredIndex === idx ? 'opacity-100' : 'opacity-0'
                           }`}
                         src={video.videoSrc}
-                        muted={isMuted}
+                        muted
                         loop
                         playsInline
                       />
@@ -286,29 +273,6 @@ const VideoTypesSection = () => {
                     {/* Gradient overlay on hover - NO title shown */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                    {/* Mute/Unmute button - shows on hover for videos */}
-                    {video.videoSrc && hoveredIndex === idx && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setIsMuted(!isMuted);
-                        }}
-                        className="absolute bottom-4 right-4 z-10 w-10 h-10 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center transition-all duration-200"
-                      >
-                        {isMuted ? (
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                            <line x1="23" y1="9" x2="17" y2="15"></line>
-                            <line x1="17" y1="9" x2="23" y2="15"></line>
-                          </svg>
-                        ) : (
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                          </svg>
-                        )}
-                      </button>
-                    )}
                   </div>
                 ))}
               </motion.div>

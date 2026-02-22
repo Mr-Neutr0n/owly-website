@@ -45,10 +45,11 @@ interface FeatureCardProps {
   className?: string;
   iconType?: 'editor' | 'cci';
   index: number;
+  imageSrc?: string;
 }
 
 // Bottom row card - stacked on mobile, side-by-side on desktop
-const FeatureCard = ({ title, description, className = '', iconType, index }: FeatureCardProps) => {
+const FeatureCard = ({ title, description, className = '', iconType, index, imageSrc }: FeatureCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -75,7 +76,13 @@ const FeatureCard = ({ title, description, className = '', iconType, index }: Fe
           <div className="flex flex-col md:hidden">
             {/* Visual element */}
             <div className="p-5 pb-0">
-              <FeatureImage />
+              {imageSrc ? (
+                <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden">
+                  <Image src={imageSrc} alt={title} fill className="object-cover" />
+                </div>
+              ) : (
+                <FeatureImage />
+              )}
             </div>
             {/* Text content - centered */}
             <div className="p-5 text-center">
@@ -112,7 +119,7 @@ const FeatureCard = ({ title, description, className = '', iconType, index }: Fe
             <div className="w-[55%] p-4 flex items-center">
               <div className="relative w-full h-full min-h-[280px] rounded-xl overflow-hidden">
                 <Image
-                  src="/images/features/ideate.png"
+                  src={imageSrc || "/images/features/ideate.png"}
                   alt={title}
                   fill
                   className="object-cover"
@@ -130,10 +137,11 @@ interface TopRowCardProps {
   title: string;
   description: string;
   index: number;
+  imageSrc?: string;
 }
 
 // Top row card - centered content with larger image
-const TopRowCard = ({ title, description, index }: TopRowCardProps) => (
+const TopRowCard = ({ title, description, index, imageSrc }: TopRowCardProps) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -157,7 +165,18 @@ const TopRowCard = ({ title, description, index }: TopRowCardProps) => (
       <div className="relative h-full rounded-[22px] bg-white border border-neutral-200 overflow-hidden flex flex-col">
         {/* Visual element - larger */}
         <div className="p-5 pb-0">
-          <FeatureImage />
+          {imageSrc ? (
+            <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden">
+              <Image
+                src={imageSrc}
+                alt={title}
+                fill
+                className="object-cover"
+              />
+            </div>
+          ) : (
+            <FeatureImage />
+          )}
         </div>
 
         {/* Text content - centered */}
@@ -201,6 +220,7 @@ const FeaturesSection = () => {
               title="Onboarding"
               description="Import your brand context, product catalog, past ad performance, and audience data. All in one place."
               index={0}
+              imageSrc="/images/onboarding-brand.png"
             />
             <TopRowCard
               title="Ideation"
@@ -211,6 +231,7 @@ const FeaturesSection = () => {
               title="Creation"
               description="Generate storyboards, moodboards, videos, and static social posts. All from a single brief."
               index={2}
+              imageSrc="/images/creation-feature.png"
             />
           </div>
 
@@ -221,12 +242,14 @@ const FeaturesSection = () => {
               description="Converse with an AI editor to add motion graphics, trim clips, color grade, and auto-add B-roll."
               iconType="editor"
               index={3}
+              imageSrc="/images/editor-feature.png"
             />
             <FeatureCard
               title="Publish & Analyze"
               description="Publish ads and get creative intelligence on what worked, so every campaign improves the next."
               iconType="cci"
               index={4}
+              imageSrc="/images/publish-feature.png"
             />
           </div>
         </div>
