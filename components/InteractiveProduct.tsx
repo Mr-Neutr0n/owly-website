@@ -614,14 +614,14 @@ const InteractiveProduct = () => {
                         </button>
 
                         {/* Send Button */}
-                        <button
-                          className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors ${
-                            inputValue.trim() ? 'bg-white hover:bg-gray-200' : 'bg-white/20'
-                          }`}
-                          disabled={!inputValue.trim()}
+                        <a
+                          href="https://app.owly.studio"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-9 h-9 rounded-full flex items-center justify-center bg-white hover:bg-gray-200 transition-colors cursor-pointer"
                         >
-                          <ArrowUp className={`w-5 h-5 ${inputValue.trim() ? 'text-black' : 'text-white/40'}`} />
-                        </button>
+                          <ArrowUp className="w-5 h-5 text-black rotate-90" />
+                        </a>
                       </div>
                     </div>
                   </div>
