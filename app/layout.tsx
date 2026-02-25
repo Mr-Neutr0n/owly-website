@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Owly | AI Workflows for Ad Campaigns',
-    description: 'Storyboard, script, AI video generation, review. All in one place for marketing teams.',
+    description: 'AI-driven video workflows tailored for performance marketing teams, helping them increase creative velocity without compromising.',
     url: 'https://www.owly.studio/',
     siteName: 'Owly',
     type: 'website',
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Owly | AI Workflows for Ad Campaigns',
-    description: 'Storyboard, script, AI video generation, review. All in one place.',
+    description: 'AI-driven video workflows tailored for performance marketing teams, helping them increase creative velocity without compromising.',
     images: ['https://www.owly.studio/og.jpg'],
   },
   robots: {
