@@ -1,0 +1,10 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path((?!_next|api|images|favicon|.*\\..*).*)/",
+      "destination": "/:path",
+      "permanent": true
+    }
+  ]
+}

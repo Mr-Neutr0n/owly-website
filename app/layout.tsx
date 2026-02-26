@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://www.owly.studio',
   },
   openGraph: {
     title: 'Owly | AI Workflows for Ad Campaigns',
